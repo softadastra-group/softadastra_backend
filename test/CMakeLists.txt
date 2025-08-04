@@ -13,7 +13,7 @@ target_include_directories(softadastra_tests PRIVATE
 
 target_link_libraries(softadastra_tests PRIVATE
     adastra
-    softadastra_lib
+    softadastra
     Threads::Threads
     nlohmann_json::nlohmann_json
     gtest

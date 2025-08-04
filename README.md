@@ -26,8 +26,8 @@ softadastra/
 | Target Name             | Type       | Description                              |
 | ----------------------- | ---------- | ---------------------------------------- |
 | `adastra`               | Static lib | Core: utils, crypto, core, network, etc. |
-| `softadastra_lib`       | Static lib | Ecosystem logic (chat, shop, pay, etc.)  |
-| `softadastra`           | Executable | Main HTTP API (Crow)                     |
+| `softadastra`           | Static lib | Ecosystem logic (chat, shop, pay, etc.)  |
+| `softadastra_main`      | Executable | Main HTTP API (Crow)                     |
 | `softadastra_tests`     | Executable | Integration tests (GoogleTest)           |
 | `softadastra_unittests` | Executable | Unit tests (GoogleTest / Catch2)         |
 
@@ -97,6 +97,15 @@ ctest --output-on-failure
 
 ---
 
+## 🛠 Development workflow
+
+Use the provided `Makefile` for Git operations and testing:
+
+make help # List available commands
+make commit # Commit changes
+make push # Push to dev
+make release # Full release: commit + merge + tag
+
 ## 🔖 Versions
 
 This project follows [Semantic Versioning](https://semver.org/lang/fr/).
@@ -115,6 +124,10 @@ https://softadastra.com
 ## 📄 License
 
 MIT or Softadastra-specific license (to be defined in LICENSE).
+
+```
+
+```
 
 ```
 

@@ -3,8 +3,8 @@
 echo "🧪 Running tests..."
 
 # Executable paths
-INTEGRATION="./build/bin/adastra_tests"
-UNIT="./build/bin/adastra_unittests"
+INTEGRATION="./build/bin/softadastra_tests"
+UNIT="./build/bin/softadastra_unittests"
 
 # Integration tests
 if [ -f "$INTEGRATION" ]; then
