@@ -1,5 +1,7 @@
 #include <softadastra/commerce/product/ProductController.hpp>
 #include <softadastra/commerce/product/ProductCache.hpp>
+#include <softadastra/commerce/product/ProductService.hpp>
+#include <adastra/config/env/EnvLoader.hpp>
 
 #include <crow.h>
 #include <crow/middlewares/cors.h>
@@ -14,21 +16,46 @@ namespace softadastra::commerce::product
     static std::unique_ptr<ProductCache> g_productCache;
     static std::once_flag init_flag;
 
-    void registerProductController(crow::App<crow::CORSHandler> &app)
+    void ProductController(crow::App<crow::CORSHandler> &app)
     {
-        const char *path = std::getenv("PRODUCT_JSON_PATH");
-        if (!path)
-        {
-            throw std::runtime_error("PRODUCT_JSON_PATH non défini !");
-        }
+        std::string path = adastra::config::env::EnvLoader::require("PRODUCT_JSON_PATH");
 
         std::call_once(init_flag, [&]()
                        {
-            g_productCache = std::make_unique<ProductCache>(path);
+            g_productCache = std::make_unique<ProductCache>(
+                path,
+                [path]() -> std::vector<Product> {
+                    ProductService service(path);
+                    return service.getAllProducts();
+                },
+                [](const std::vector<Product>& products) -> nlohmann::json {
+                    nlohmann::json j;
+                    j["data"] = nlohmann::json::array();
+
+                    for (const auto& p : products)
+                    {
+                        j["data"].push_back({
+                            {"id", p.getId()},
+                            {"title", p.getTitle()},
+                            {"image_url", p.getImageUrl()},
+                            {"city_name", p.getCityName()},
+                            {"country_image_url", p.getCountryImageUrl()},
+                            {"currency", p.getCurrency()},
+                            {"formatted_price", p.getFormattedPrice()},
+                            {"converted_price", p.getConvertedPrice()},
+                            {"sizes", p.getSizes()},
+                            {"colors", p.getColors()}
+                        });
+                    }
+
+                    return j;
+                }
+            );
+
             g_productCache->getJson(); // Warm up
             std::cout << "[ProductController] Cache produit initialisé.\n"; });
 
-        // Mini documentation des routes
+        // Mini documentation
         CROW_ROUTE(app, "/api/products")
         ([]
          {
@@ -45,7 +72,7 @@ namespace softadastra::commerce::product
             res.set_header("Content-Type", "application/json");
             return res; });
 
-        // Récupération des produits
+        // Liste des produits
         CROW_ROUTE(app, "/api/products/all")
         ([]
          {
@@ -61,7 +88,7 @@ namespace softadastra::commerce::product
                 return crow::response(500, std::string("Erreur : ") + e.what());
             } });
 
-        // Recharge du cache
+        // Rechargement du cache
         CROW_ROUTE(app, "/api/products/reload").methods("POST"_method)([]
                                                                        {
             if (!g_productCache)

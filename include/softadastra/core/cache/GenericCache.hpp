@@ -5,7 +5,9 @@
 #include <vector>
 #include <functional>
 #include <mutex>
+#include <fstream>
 #include <nlohmann/json.hpp>
+#include <filesystem>
 
 namespace softadastra::core::cache
 {
@@ -73,10 +75,11 @@ namespace softadastra::core::cache
 
         void saveToFile()
         {
-            std::ofstream out(cachePath);
+            std::ofstream out(cachePath, std::ios::out | std::ios::trunc);
             if (out.is_open())
             {
-                out << cachedJson;
+                out.write(cachedJson.data(), cachedJson.size());
+                out.close();
             }
         }
     };

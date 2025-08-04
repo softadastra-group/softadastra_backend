@@ -6,7 +6,7 @@
 
 namespace softadastra::commerce::product
 {
-    void registerProductController(crow::App<crow::CORSHandler> &app);
+    void ProductController(crow::App<crow::CORSHandler> &app);
 }
 
 #endif // PRODUCT_CONTROLLER_HPP

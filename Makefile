@@ -36,6 +36,7 @@ tag:
 	git push origin $(VERSION)
 
 release:
+	make changelog
 	make commit
 	make push
 	make merge
