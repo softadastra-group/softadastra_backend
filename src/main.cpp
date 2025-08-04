@@ -3,8 +3,8 @@
 #include <vector>
 #include <crow.h>
 
-#include <softadastra/commerce/product/ProductBuilder.hpp>
-#include <softadastra/commerce/product/ProductController.hpp>
+#include <softadastra/commerce/products/ProductBuilder.hpp>
+#include <softadastra/commerce/products/ProductController.hpp>
 #include <adastra/config/env/EnvBoot.hpp>
 
 using namespace softadastra::commerce::product;

@@ -23,7 +23,7 @@ namespace softadastra::commerce::product
         std::vector<std::string> sizes;
         std::vector<std::string> colors;
 
-        // ✅ Constructeur privé accessible uniquement par ProductBuilder
+        // Constructeur privé accessible uniquement par ProductBuilder
         Product() : id(0) {}
 
         friend class ProductBuilder;

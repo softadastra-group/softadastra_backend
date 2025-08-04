@@ -1,7 +1,7 @@
 #ifndef PRODUCT_WITH_PROMO_HPP
 #define PRODUCT_WITH_PROMO_HPP
 
-#include <softadastra/commerce/product/Product.hpp>
+#include <softadastra/commerce/products/Product.hpp>
 #include <nlohmann/json.hpp>
 
 namespace softadastra::commerce::product

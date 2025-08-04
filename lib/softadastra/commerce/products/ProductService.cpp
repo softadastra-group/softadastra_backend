@@ -2,9 +2,9 @@
 #include <fstream>
 #include <stdexcept>
 
-#include <softadastra/commerce/product/ProductService.hpp>
-#include <softadastra/commerce/product/ProductValidator.hpp>
-#include <softadastra/commerce/product/ProductBuilder.hpp>
+#include <softadastra/commerce/products/ProductService.hpp>
+#include <softadastra/commerce/products/ProductValidator.hpp>
+#include <softadastra/commerce/products/ProductBuilder.hpp>
 
 namespace softadastra::commerce::product
 {

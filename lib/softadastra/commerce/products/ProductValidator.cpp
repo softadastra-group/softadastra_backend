@@ -1,4 +1,4 @@
-#include <softadastra/commerce/product/ProductValidator.hpp>
+#include <softadastra/commerce/products/ProductValidator.hpp>
 #include <stdexcept>
 
 namespace softadastra::commerce::product

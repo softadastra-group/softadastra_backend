@@ -1,6 +1,6 @@
-#include <softadastra/commerce/product/ProductController.hpp>
-#include <softadastra/commerce/product/ProductCache.hpp>
-#include <softadastra/commerce/product/ProductService.hpp>
+#include <softadastra/commerce/products/ProductController.hpp>
+#include <softadastra/commerce/products/ProductCache.hpp>
+#include <softadastra/commerce/products/ProductService.hpp>
 #include <adastra/config/env/EnvLoader.hpp>
 
 #include <crow.h>

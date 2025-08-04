@@ -2,7 +2,7 @@
 #define PRODUCT_CACHE_HPP
 
 #include <softadastra/core/cache/GenericCache.hpp>
-#include <softadastra/commerce/product/Product.hpp>
+#include <softadastra/commerce/products/Product.hpp>
 
 namespace softadastra::commerce::product
 {

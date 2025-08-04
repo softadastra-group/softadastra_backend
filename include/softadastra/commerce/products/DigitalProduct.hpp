@@ -1,7 +1,7 @@
 #ifndef DIGITAL_PRODUCT_HPP
 #define DIGITAL_PRODUCT_HPP
 
-#include <softadastra/commerce/product/Product.hpp>
+#include <softadastra/commerce/products/Product.hpp>
 #include <nlohmann/json.hpp>
 
 namespace softadastra::commerce::product

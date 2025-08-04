@@ -1,7 +1,7 @@
-#include <softadastra/commerce/product/ProductFactory.hpp>
-#include <softadastra/commerce/product/ProductWithPromo.hpp>
-#include <softadastra/commerce/product/DigitalProduct.hpp>
-#include <softadastra/commerce/product/ProductBuilder.hpp>
+#include <softadastra/commerce/products/ProductFactory.hpp>
+#include <softadastra/commerce/products/ProductWithPromo.hpp>
+#include <softadastra/commerce/products/DigitalProduct.hpp>
+#include <softadastra/commerce/products/ProductBuilder.hpp>
 #include <iostream>
 
 namespace softadastra::commerce::product
@@ -30,7 +30,6 @@ namespace softadastra::commerce::product
                 return std::make_unique<DigitalProduct>(data);
             }
 
-            // ✅ Construction via ProductBuilder
             Product product = ProductBuilder()
                                   .setTitle(data.value("title", ""))
                                   .setImageUrl(data.value("image_url", ""))

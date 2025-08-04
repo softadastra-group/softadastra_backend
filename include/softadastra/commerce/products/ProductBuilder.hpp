@@ -1,7 +1,7 @@
 #ifndef PRODUCT_BUILDER_HPP
 #define PRODUCT_BUILDER_HPP
 
-#include "Product.hpp"
+#include <softadastra/commerce/products/Product.hpp>
 
 namespace softadastra::commerce::product
 {

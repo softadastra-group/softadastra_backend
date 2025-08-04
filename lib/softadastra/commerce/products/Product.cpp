@@ -1,4 +1,4 @@
-#include <softadastra/commerce/product/Product.hpp>
+#include <softadastra/commerce/products/Product.hpp>
 
 namespace softadastra::commerce::product
 {
