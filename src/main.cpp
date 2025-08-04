@@ -6,23 +6,12 @@
 #include <adastra/core/Core.hpp>
 #include <softadastra/shop/ShopManager.hpp>
 #include <softadastra/chat/ChatModule.hpp>
+#include <softadastra/commerce/product/ProductFactory.hpp>
+#include <softadastra/commerce/product/ProductWithPromo.hpp>
+#include <softadastra/commerce/product/DigitalProduct.hpp>
 
 using namespace adastra::core::algorithms;
-
-template <typename T>
-void print(const std::vector<T> &v)
-{
-    std::cout << "---------------------" << std::endl;
-    for (auto pos = v.begin(); pos != v.end(); ++pos)
-    {
-        if (pos != v.begin())
-        {
-            std::cout << ", ";
-        }
-        std::cout << *pos;
-    }
-    std::cout << std::endl;
-}
+using namespace softadastra::commerce::product;
 
 int main()
 {
@@ -30,18 +19,41 @@ int main()
     std::cout << "🟢 Backend Softadastra lancé..." << std::endl;
     std::cout << "📦 " << manager.getWelcomeMessage() << std::endl;
 
-    crow::SimpleApp app;
+    // 🛍 Produit avec promo
+    nlohmann::json promoJson = {
+        {"type", "promo"},
+        {"title", "Sac de luxe"},
+        {"formatted_price", "$99"},
+        {"promo_text", "🔥 -50% aujourd'hui"},
+        {"sizes", {"M"}},
+        {"colors", {"black"}}};
 
-    // ✅ Route de test : GET /api/hello
-    CROW_ROUTE(app, "/api/hello").methods("GET"_method)([]
-                                                        {
-        crow::json::wvalue response;
-        response["status"] = "ok";
-        response["message"] = "Hello from Softadastra API 🚀";
-        return response; });
+    auto promoProduct = ProductFactory::createFromJson(promoJson);
 
-    // 🚀 Lancer le serveur
-    app.port(8080).multithreaded().run();
+    if (auto castedPromo = dynamic_cast<ProductWithPromo *>(promoProduct.get()))
+    {
+        std::cout << "🛒 Produit promo : " << castedPromo->getTitle()
+                  << " — " << castedPromo->getFormattedPrice()
+                  << " | Promo: " << castedPromo->getPromoText() << "\n";
+    }
+
+    // 📘 Produit numérique
+    nlohmann::json digitalJson = {
+        {"type", "digital"},
+        {"title", "Guide PDF de Softadastra"},
+        {"formatted_price", "$5"},
+        {"download_url", "https://softadastra.com/files/ebook.pdf"},
+        {"sizes", nlohmann::json::array()},
+        {"colors", nlohmann::json::array()}};
+
+    auto digitalProduct = ProductFactory::createFromJson(digitalJson);
+
+    if (auto castedDigital = dynamic_cast<DigitalProduct *>(digitalProduct.get()))
+    {
+        std::cout << "📘 Produit digital : " << castedDigital->getTitle()
+                  << " — " << castedDigital->getFormattedPrice()
+                  << " | Lien : " << castedDigital->getDownloadUrl() << "\n";
+    }
 
     return 0;
 }
