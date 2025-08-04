@@ -55,7 +55,6 @@ namespace softadastra::commerce::product
             g_productCache->getJson(); // Warm up
             std::cout << "[ProductController] Cache produit initialisé.\n"; });
 
-        // Mini documentation
         CROW_ROUTE(app, "/api/products")
         ([]
          {
@@ -72,7 +71,6 @@ namespace softadastra::commerce::product
             res.set_header("Content-Type", "application/json");
             return res; });
 
-        // Liste des produits
         CROW_ROUTE(app, "/api/products/all")
         ([]
          {
@@ -88,7 +86,6 @@ namespace softadastra::commerce::product
                 return crow::response(500, std::string("Erreur : ") + e.what());
             } });
 
-        // Rechargement du cache
         CROW_ROUTE(app, "/api/products/reload").methods("POST"_method)([]
                                                                        {
             if (!g_productCache)
@@ -104,7 +101,6 @@ namespace softadastra::commerce::product
                 return crow::response(500, std::string("Erreur lors du rechargement : ") + e.what());
             } });
 
-        // Statut du cache
         CROW_ROUTE(app, "/api/products/status")
         ([]
          {

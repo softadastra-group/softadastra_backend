@@ -3,17 +3,21 @@
 #include <vector>
 #include <crow.h>
 
-#include <softadastra/commerce/products/ProductBuilder.hpp>
 #include <softadastra/commerce/products/ProductController.hpp>
+#include <softadastra/commerce/categories/CategoryController.hpp>
 #include <adastra/config/env/EnvBoot.hpp>
+#include <adastra/config/env/EnvLoader.hpp>
 
 using namespace softadastra::commerce::product;
 
 int main()
 {
     adastra::config::env::loadDotEnv("../.env");
+    int port = adastra::config::env::EnvLoader::getInt("SERVER_PORT", 18080);
+    int threads = adastra::config::env::EnvLoader::getInt("SERVER_THREADS", 4);
 
-    std::cout << "🟢 Backend Softadastra lancé..." << std::endl;
+    std::cout << "🟢 Backend Softadastra lancé sur le port " << port
+              << " avec " << threads << " threads..." << std::endl;
     crow::App<crow::CORSHandler> app;
 
     auto &cors = app.get_middleware<crow::CORSHandler>();
@@ -24,8 +28,9 @@ int main()
         .max_age(86400);
 
     softadastra::commerce::product::ProductController(app);
+    softadastra::commerce::categories::CategoryController(app);
 
-    app.port(18080).multithreaded().run();
+    app.port(port).concurrency(threads).run();
 
     return 0;
 }

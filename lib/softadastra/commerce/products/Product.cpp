@@ -33,6 +33,4 @@ namespace softadastra::commerce::product
         }
         return *this;
     }
-
-    // (Tu peux aussi avoir d'autres méthodes ici si besoin)
 }

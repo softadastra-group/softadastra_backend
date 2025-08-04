@@ -7,7 +7,7 @@
 
 namespace softadastra::commerce::product
 {
-    class ProductBuilder; // Déclaration anticipée
+    class ProductBuilder;
 
     class Product
     {
