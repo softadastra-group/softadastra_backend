@@ -24,7 +24,7 @@ We are thrilled that you want to contribute to this modular, high-performance, d
 
 ```bash
 # Clone the project
-git clone https://github.com/softadastra/adastra_lib.git
+git clone https://github.com/softadastra-group/softadastra_backend.git
 cd adastra_lib
 
 # Development build

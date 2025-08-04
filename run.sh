@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the binary path
-BINARY="./build/bin/softadastra"
+BINARY="./build/bin/softadastra_main"
 
 # Check if the binary exists
 if [ -f "$BINARY" ]; then
