@@ -1,6 +1,7 @@
 #include <softadastra/commerce/product/ProductFactory.hpp>
 #include <softadastra/commerce/product/ProductWithPromo.hpp>
 #include <softadastra/commerce/product/DigitalProduct.hpp>
+#include <softadastra/commerce/product/ProductBuilder.hpp>
 #include <iostream>
 
 namespace softadastra::commerce::product
@@ -29,17 +30,20 @@ namespace softadastra::commerce::product
                 return std::make_unique<DigitalProduct>(data);
             }
 
-            // Produit par défaut (type: basic)
-            return std::make_unique<Product>(
-                data.value("title", ""),
-                data.value("image_url", ""),
-                data.value("city_name", ""),
-                data.value("country_image_url", ""),
-                data.value("currency", ""),
-                data.value("formatted_price", ""),
-                data.value("converted_price", ""),
-                safeArray(data, "sizes"),
-                safeArray(data, "colors"));
+            // ✅ Construction via ProductBuilder
+            Product product = ProductBuilder()
+                                  .setTitle(data.value("title", ""))
+                                  .setImageUrl(data.value("image_url", ""))
+                                  .setCityName(data.value("city_name", ""))
+                                  .setCountryImageUrl(data.value("country_image_url", ""))
+                                  .setCurrency(data.value("currency", ""))
+                                  .setFormattedPrice(data.value("formatted_price", ""))
+                                  .setConvertedPrice(data.value("converted_price", ""))
+                                  .setSizes(safeArray(data, "sizes"))
+                                  .setColors(safeArray(data, "colors"))
+                                  .build();
+
+            return std::make_unique<Product>(std::move(product));
         }
         catch (const std::exception &ex)
         {

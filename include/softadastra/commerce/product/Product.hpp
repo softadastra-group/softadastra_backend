@@ -7,9 +7,11 @@
 
 namespace softadastra::commerce::product
 {
+    class ProductBuilder; // Déclaration anticipée
+
     class Product
     {
-    public:
+    private:
         uint32_t id;
         std::string title;
         std::string image_url;
@@ -21,20 +23,34 @@ namespace softadastra::commerce::product
         std::vector<std::string> sizes;
         std::vector<std::string> colors;
 
-        Product(const std::string &title, const std::string &image_url,
-                const std::string &city_name, const std::string &country_image_url,
-                const std::string &currency, const std::string &formatted_price,
+        // ✅ Constructeur privé accessible uniquement par ProductBuilder
+        Product() : id(0) {}
+
+        friend class ProductBuilder;
+
+    protected:
+        // Constructeur accessible uniquement aux classes dérivées
+        Product(const std::string &title,
+                const std::string &image_url,
+                const std::string &city_name,
+                const std::string &country_image_url,
+                const std::string &currency,
+                const std::string &formatted_price,
                 const std::string &converted_price,
                 const std::vector<std::string> &sizes,
                 const std::vector<std::string> &colors)
             : id(0),
-              title(title), image_url(image_url), city_name(city_name),
-              country_image_url(country_image_url), currency(currency),
-              formatted_price(formatted_price), converted_price(converted_price),
-              sizes(sizes), colors(colors)
-        {
-        }
+              title(title),
+              image_url(image_url),
+              city_name(city_name),
+              country_image_url(country_image_url),
+              currency(currency),
+              formatted_price(formatted_price),
+              converted_price(converted_price),
+              sizes(sizes),
+              colors(colors) {}
 
+    public:
         Product(const Product &other) = default;
         Product(Product &&other) noexcept;
         Product &operator=(const Product &other);
@@ -63,6 +79,6 @@ namespace softadastra::commerce::product
         void setSizes(const std::vector<std::string> &new_sizes) { sizes = new_sizes; }
         void setColors(const std::vector<std::string> &new_colors) { colors = new_colors; }
     };
-};
+}
 
 #endif // PRODUCT_HPP

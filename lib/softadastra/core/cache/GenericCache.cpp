@@ -1,0 +1,1 @@
+#include <softadastra/core/cache/GenericCache.hpp>
