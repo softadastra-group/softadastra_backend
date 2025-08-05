@@ -17,11 +17,23 @@ namespace softadastra::core::cache
     public:
         GenericCache(const std::string &cacheFilePath,
                      std::function<std::vector<T>()> loader,
-                     std::function<nlohmann::json(const std::vector<T> &)> serializer)
+                     std::function<nlohmann::json(const std::vector<T> &)> serializer,
+                     std::function<std::vector<T>(const nlohmann::json &)> deserializer = nullptr)
             : cachePath(cacheFilePath),
               loadData(loader),
               serialize(serializer),
+              deserialize(deserializer),
               isLoaded(false) {}
+
+        const std::vector<T> &getAll()
+        {
+            std::lock_guard<std::mutex> lock(mutex);
+            if (!isLoaded)
+            {
+                load();
+            }
+            return data_;
+        }
 
         std::string getJson()
         {
@@ -42,8 +54,10 @@ namespace softadastra::core::cache
     private:
         std::string cachePath;
         std::string cachedJson;
+        std::vector<T> data_;
         std::function<std::vector<T>()> loadData;
         std::function<nlohmann::json(const std::vector<T> &)> serialize;
+        std::function<std::vector<T>(const nlohmann::json &)> deserialize;
         bool isLoaded;
         std::mutex mutex;
 
@@ -52,8 +66,8 @@ namespace softadastra::core::cache
             if (!forceReload && loadFromFile())
                 return;
 
-            auto data = loadData();
-            cachedJson = serialize(data).dump();
+            data_ = loadData();
+            cachedJson = serialize(data_).dump();
             isLoaded = true;
             saveToFile();
         }
@@ -67,10 +81,33 @@ namespace softadastra::core::cache
             if (!in.is_open())
                 return false;
 
-            cachedJson.assign((std::istreambuf_iterator<char>(in)),
-                              std::istreambuf_iterator<char>());
+            std::string fileContent((std::istreambuf_iterator<char>(in)),
+                                    std::istreambuf_iterator<char>());
 
-            return !cachedJson.empty();
+            if (fileContent.empty())
+                return false;
+
+            cachedJson = fileContent;
+
+            try
+            {
+                auto j = nlohmann::json::parse(fileContent);
+                if (deserialize)
+                {
+                    data_ = deserialize(j);
+                }
+                else
+                {
+                    return false;
+                }
+
+                isLoaded = true;
+                return true;
+            }
+            catch (...)
+            {
+                return false;
+            }
         }
 
         void saveToFile()

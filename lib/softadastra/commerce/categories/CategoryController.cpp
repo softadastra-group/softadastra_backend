@@ -1,6 +1,9 @@
 #include <softadastra/commerce/categories/CategoryController.hpp>
 #include <softadastra/commerce/categories/CategoryCache.hpp>
 #include <softadastra/commerce/categories/CategoryService.hpp>
+#include <softadastra/commerce/categories/CategoryServiceFromCache.hpp>
+#include <softadastra/commerce/categories/CategoryJsonParser.hpp>
+
 #include <adastra/config/env/EnvLoader.hpp>
 
 #include <nlohmann/json.hpp>
@@ -16,26 +19,25 @@ namespace softadastra::commerce::categories
     void CategoryController(crow::App<crow::CORSHandler> &app)
     {
         const std::string jsonPathAll = adastra::config::env::EnvLoader::require("CATEGORY_JSON_PATH_ALL");
-        const std::string jsonPathLeaf = adastra::config::env::EnvLoader::require("CATEGORY_JSON_PATH_LEAF");
-        const std::string jsonPathTop = adastra::config::env::EnvLoader::require("CATEGORY_JSON_PATH_TOP_LEVEL");
 
         std::call_once(init_flag, [&]()
                        {
+            std::vector<Category> loaded = CategoryService(jsonPathAll).getAllCategories();
+            std::cout << "📦 Catégories chargées à l'initialisation : " << loaded.size() << "\n";
+
             g_categoryCache = std::make_unique<CategoryCache>(
                 jsonPathAll,
-                [jsonPathAll]() -> std::vector<Category> {
-                    CategoryService service(jsonPathAll);
-                    return service.getAllCategories();
+                [loaded]() -> std::vector<Category> {
+                    return loaded;
                 },
                 [](const std::vector<Category>& categories) -> nlohmann::json {
                     nlohmann::json j;
                     j["categories"] = nlohmann::json::array();
-
                     for (const auto& c : categories) {
                         nlohmann::json item = {
                             {"id", c.getId()},
                             {"name", c.getName()},
-                            {"image", c.getImageUrl()},
+                            {"image_url", c.getImageUrl()},
                             {"product_count", c.getProductCount()}
                         };
 
@@ -46,55 +48,13 @@ namespace softadastra::commerce::categories
 
                         j["categories"].push_back(item);
                     }
-
                     return j;
-                }
+                },
+                parseCategoryJson 
             );
 
             g_categoryCache->getJson(); // warm-up
-            std::cout << "[CategoryController] Cache all_categories.json initialisé.\n"; });
-
-        CROW_ROUTE(app, "/api/categories")
-        ([]
-         {
-            nlohmann::json doc = {
-                {"endpoints", {
-                    {
-                        {"method", "GET"},
-                        {"path", "/api/categories"},
-                        {"description", "Mini doc des routes catégories"}
-                    },
-                    {
-                        {"method", "GET"},
-                        {"path", "/api/categories/all"},
-                        {"description", "Toutes les catégories depuis le cache"}
-                    },
-                    {
-                        {"method", "POST"},
-                        {"path", "/api/categories/reload"},
-                        {"description", "Recharge les catégories depuis le fichier JSON"}
-                    },
-                    {
-                        {"method", "GET"},
-                        {"path", "/api/categories/status"},
-                        {"description", "Statut du cache catégorie"}
-                    },
-                    {
-                        {"method", "GET"},
-                        {"path", "/api/categories/leaf"},
-                        {"description", "Toutes les sous-catégories finales (leaf)"}
-                    },
-                    {
-                        {"method", "GET"},
-                        {"path", "/api/categories/top"},
-                        {"description", "Catégories top-level (racines sans parent)"}
-                    }
-                }}
-            };
-
-            crow::response res(doc.dump(2));
-            res.set_header("Content-Type", "application/json");
-            return res; });
+            std::cout << "✅ [CategoryController] Cache initialisé à partir de all_categories.json\n"; });
 
         CROW_ROUTE(app, "/api/categories/all")
         ([]
@@ -151,10 +111,15 @@ namespace softadastra::commerce::categories
             } });
 
         CROW_ROUTE(app, "/api/categories/top")
-        ([jsonPathTop]
+        ([]
          {
             try {
-                CategoryService service(jsonPathTop);
+                if (!g_categoryCache)
+                    throw std::runtime_error("Cache non initialisé");
+
+                const auto& all = g_categoryCache->getAll();
+
+                softadastra::commerce::categories::CategoryServiceFromCache service(all);
                 auto top = service.getTopLevelCategories();
 
                 nlohmann::json j;
@@ -174,15 +139,21 @@ namespace softadastra::commerce::categories
                 res.set_header("Content-Type", "application/json");
                 res.set_header("Cache-Control", "public, max-age=60");
                 return res;
+
             } catch (const std::exception& e) {
                 return crow::response(500, std::string("Erreur top-level : ") + e.what());
             } });
 
         CROW_ROUTE(app, "/api/categories/leaf")
-        ([jsonPathLeaf]
+        ([]
          {
             try {
-                CategoryService service(jsonPathLeaf);
+                if (!g_categoryCache)
+                    throw std::runtime_error("Cache non initialisé");
+
+                const auto& all = g_categoryCache->getAll();
+
+                softadastra::commerce::categories::CategoryServiceFromCache service(all);
                 auto leaves = service.getLeafCategories();
 
                 nlohmann::json j;
@@ -195,6 +166,7 @@ namespace softadastra::commerce::categories
                         {"image", c.getImageUrl()},
                         {"product_count", c.getProductCount()}
                     };
+
                     if (c.getParentId().has_value())
                         item["parent_id"] = c.getParentId().value();
                     else
@@ -207,8 +179,51 @@ namespace softadastra::commerce::categories
                 res.set_header("Content-Type", "application/json");
                 res.set_header("Cache-Control", "public, max-age=60");
                 return res;
+
             } catch (const std::exception& e) {
                 return crow::response(500, std::string("Erreur leaf-categories : ") + e.what());
             } });
+
+        CROW_ROUTE(app, "/api/categories")
+        ([]
+         {
+            nlohmann::json doc = {
+                {"endpoints", {
+                    {
+                        {"method", "GET"},
+                        {"path", "/api/categories"},
+                        {"description", "Mini doc des routes catégories"}
+                    },
+                    {
+                        {"method", "GET"},
+                        {"path", "/api/categories/all"},
+                        {"description", "Toutes les catégories depuis le cache"}
+                    },
+                    {
+                        {"method", "POST"},
+                        {"path", "/api/categories/reload"},
+                        {"description", "Recharge les catégories depuis le fichier JSON"}
+                    },
+                    {
+                        {"method", "GET"},
+                        {"path", "/api/categories/status"},
+                        {"description", "Statut du cache catégorie"}
+                    },
+                    {
+                        {"method", "GET"},
+                        {"path", "/api/categories/leaf"},
+                        {"description", "Toutes les sous-catégories finales (leaf)"}
+                    },
+                    {
+                        {"method", "GET"},
+                        {"path", "/api/categories/top"},
+                        {"description", "Catégories top-level (racines sans parent)"}
+                    }
+                }}
+            };
+
+            crow::response res(doc.dump(2));
+            res.set_header("Content-Type", "application/json");
+            return res; });
     }
 }
