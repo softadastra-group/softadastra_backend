@@ -6,6 +6,10 @@
 #include <string>
 #include <optional>
 
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
+
 namespace softadastra::commerce::categories
 {
     class Category
@@ -36,6 +40,44 @@ namespace softadastra::commerce::categories
         void setImageUrl(const std::string &image_url) { image_url_ = image_url; }
         std::uint32_t getProductCount() const { return product_count_; }
         void setProductCount(std::uint32_t count) { product_count_ = count; }
+
+        json toJson() const
+        {
+            json j;
+            j["id"] = getId();
+            j["name"] = getName();
+            j["product_count"] = getProductCount();
+
+            if (getParentId().has_value())
+            {
+                j["parent_id"] = getParentId().value();
+            }
+            else
+            {
+                j["parent_id"] = nullptr;
+            }
+
+            return j;
+        }
+
+        static Category fromJson(const json &j)
+        {
+            std::string name = j.at("name").get<std::string>();
+            std::optional<std::uint32_t> parentId;
+
+            if (j.contains("parent_id") && !j["parent_id"].is_null())
+            {
+                parentId = j["parent_id"].get<std::uint32_t>();
+            }
+
+            std::uint32_t productCount = j.at("product_count");
+            std::string image_url = j.at("image_url").get<std::string>();
+
+            Category c(name, parentId, image_url);
+            c.setProductCount(productCount);
+
+            return c;
+        }
 
     private:
         std::uint32_t id_ = 0;
