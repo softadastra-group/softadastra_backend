@@ -1,0 +1,1 @@
+#include <softadastra/commerce/categories/CategoryRepository.hpp>

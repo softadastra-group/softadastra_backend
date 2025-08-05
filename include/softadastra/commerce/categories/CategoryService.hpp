@@ -2,7 +2,7 @@
 #define CATEGORY_SERVICE_HPP
 
 #include <softadastra/commerce/categories/Category.hpp>
-#include <softadastra/commerce/categories/CategoryRepositoryJson.hpp>
+#include <softadastra/commerce/categories/CategoryRepository.hpp>
 #include <string>
 #include <vector>
 
@@ -18,7 +18,7 @@ namespace softadastra::commerce::categories
         std::vector<Category> getTopLevelCategories() const;
 
     private:
-        mutable CategoryRepositoryJson repository;
+        mutable CategoryRepository repository;
     };
 }
 

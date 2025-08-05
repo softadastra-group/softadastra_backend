@@ -1,17 +1,18 @@
 #ifndef PRODUCT_BUILDER_HPP
 #define PRODUCT_BUILDER_HPP
 
+#include <string>
+#include <vector>
+#include <cstdint>
+
 #include <softadastra/commerce/products/Product.hpp>
 
 namespace softadastra::commerce::product
 {
     class ProductBuilder
     {
-    private:
-        Product product;
-
     public:
-        ProductBuilder(); // Appelle Product()
+        ProductBuilder();
 
         ProductBuilder &setId(uint32_t id);
         ProductBuilder &setTitle(const std::string &title);
@@ -25,6 +26,9 @@ namespace softadastra::commerce::product
         ProductBuilder &setColors(const std::vector<std::string> &colors);
 
         Product build() const;
+
+    private:
+        Product product;
     };
 }
 

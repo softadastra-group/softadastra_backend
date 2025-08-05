@@ -1,1 +1,2038 @@
-{"categories":[{"id":167,"name":"Zip-Up Sweatshirts","parent_id":149,"product_count":0},{"id":64,"name":"Yoga Pants","parent_id":12,"product_count":0},{"id":68,"name":"Yoga Pants","parent_id":13,"product_count":0},{"id":96,"name":"Work Shoes","parent_id":3,"product_count":0},{"id":229,"name":"Work Boots","parent_id":215,"product_count":0},{"id":1,"name":"Women","parent_id":null,"product_count":0},{"id":21,"name":"Winter Coats","parent_id":7,"product_count":0},{"id":159,"name":"Winter Coats","parent_id":148,"product_count":0},{"id":123,"name":"Watches","parent_id":5,"product_count":0},{"id":241,"name":"Watches","parent_id":146,"product_count":0},{"id":245,"name":"Wallets","parent_id":146,"product_count":0},{"id":335,"name":"Voltage Regulators","parent_id":316,"product_count":0},{"id":368,"name":"VIP Bazin","parent_id":364,"product_count":0},{"id":325,"name":"Valves","parent_id":314,"product_count":0},{"id":157,"name":"Underwear","parent_id":143,"product_count":0},{"id":25,"name":"Trench Coats","parent_id":7,"product_count":0},{"id":163,"name":"Trench Coats","parent_id":148,"product_count":0},{"id":110,"name":"Travel Bags","parent_id":4,"product_count":0},{"id":236,"name":"Travel Bags","parent_id":145,"product_count":0},{"id":361,"name":"Travel Bags","parent_id":321,"product_count":0},{"id":315,"name":"Transmission","parent_id":313,"product_count":0},{"id":11,"name":"Tops and T-Shirts","parent_id":2,"product_count":0},{"id":320,"name":"Tires & Wheels","parent_id":313,"product_count":0},{"id":354,"name":"Tires","parent_id":320,"product_count":0},{"id":244,"name":"Ties and Bow Ties","parent_id":146,"product_count":0},{"id":77,"name":"Tankinis","parent_id":15,"product_count":0},{"id":52,"name":"Tank Tops","parent_id":11,"product_count":0},{"id":172,"name":"Tank Tops","parent_id":150,"product_count":0},{"id":206,"name":"Tank Tops","parent_id":157,"product_count":0},{"id":150,"name":"T-Shirts and Polos","parent_id":143,"product_count":0},{"id":15,"name":"Swimwear","parent_id":2,"product_count":0},{"id":78,"name":"Swim Shorts","parent_id":15,"product_count":0},{"id":8,"name":"Sweatshirts","parent_id":2,"product_count":0},{"id":149,"name":"Sweatshirts","parent_id":143,"product_count":0},{"id":318,"name":"Suspension","parent_id":313,"product_count":0},{"id":121,"name":"Sunglasses","parent_id":5,"product_count":0},{"id":243,"name":"Sunglasses","parent_id":146,"product_count":0},{"id":155,"name":"Suits and Sets","parent_id":143,"product_count":0},{"id":182,"name":"Suit Pants","parent_id":152,"product_count":0},{"id":195,"name":"Suit Pants","parent_id":155,"product_count":0},{"id":194,"name":"Suit Jackets","parent_id":155,"product_count":0},{"id":43,"name":"Strapless Dresses","parent_id":10,"product_count":0},{"id":59,"name":"Straight-Leg Jeans","parent_id":12,"product_count":0},{"id":185,"name":"Straight Jeans","parent_id":153,"product_count":0},{"id":385,"name":"Starlink Routers","parent_id":382,"product_count":0},{"id":383,"name":"Starlink Kits","parent_id":382,"product_count":0},{"id":386,"name":"Starlink Cables & Power","parent_id":382,"product_count":0},{"id":384,"name":"Starlink Antennas","parent_id":382,"product_count":0},{"id":387,"name":"Starlink Accessories","parent_id":382,"product_count":0},{"id":382,"name":"Starlink","parent_id":372,"product_count":0},{"id":329,"name":"Sprockets","parent_id":315,"product_count":0},{"id":17,"name":"Sportswear","parent_id":2,"product_count":0},{"id":156,"name":"Sportswear","parent_id":143,"product_count":0},{"id":88,"name":"Sports T-Shirts","parent_id":17,"product_count":0},{"id":200,"name":"Sports T-Shirts","parent_id":156,"product_count":0},{"id":106,"name":"Sports Sneakers","parent_id":93,"product_count":0},{"id":219,"name":"Sports Sneakers","parent_id":213,"product_count":0},{"id":191,"name":"Sports Shorts","parent_id":154,"product_count":0},{"id":201,"name":"Sports Shorts","parent_id":156,"product_count":0},{"id":87,"name":"Sports Leggings","parent_id":17,"product_count":0},{"id":86,"name":"Sports Bras","parent_id":17,"product_count":0},{"id":322,"name":"Spark Plugs","parent_id":314,"product_count":0},{"id":93,"name":"Sneakers","parent_id":3,"product_count":0},{"id":213,"name":"Sneakers","parent_id":144,"product_count":0},{"id":184,"name":"Slim Jeans","parent_id":153,"product_count":0},{"id":233,"name":"Slides","parent_id":216,"product_count":0},{"id":9,"name":"Skirts","parent_id":2,"product_count":0},{"id":57,"name":"Skinny Jeans","parent_id":12,"product_count":0},{"id":130,"name":"Skincare","parent_id":6,"product_count":0},{"id":248,"name":"Skincare","parent_id":147,"product_count":0},{"id":115,"name":"Shoulder Bags","parent_id":108,"product_count":0},{"id":14,"name":"Shorts","parent_id":2,"product_count":0},{"id":154,"name":"Shorts","parent_id":143,"product_count":0},{"id":175,"name":"Short Sleeve Shirts","parent_id":151,"product_count":0},{"id":33,"name":"Short Skirts","parent_id":9,"product_count":0},{"id":3,"name":"Shoes","parent_id":1,"product_count":0},{"id":144,"name":"Shoes","parent_id":19,"product_count":0},{"id":344,"name":"Shock Absorbers","parent_id":318,"product_count":0},{"id":54,"name":"Shirts","parent_id":11,"product_count":0},{"id":151,"name":"Shirts","parent_id":143,"product_count":0},{"id":139,"name":"Serums","parent_id":129,"product_count":0},{"id":351,"name":"Seats / Saddles","parent_id":319,"product_count":0},{"id":119,"name":"Scarves and Shawls","parent_id":5,"product_count":0},{"id":216,"name":"Sandals and Flip Flops","parent_id":144,"product_count":0},{"id":91,"name":"Sandals","parent_id":3,"product_count":0},{"id":217,"name":"Safety Shoes","parent_id":144,"product_count":0},{"id":377,"name":"Rugged Phones","parent_id":373,"product_count":0},{"id":211,"name":"Robes","parent_id":158,"product_count":0},{"id":126,"name":"Rings","parent_id":117,"product_count":0},{"id":355,"name":"Rims","parent_id":320,"product_count":0},{"id":365,"name":"Rich Bazin","parent_id":364,"product_count":0},{"id":380,"name":"Refurbished Smartphones","parent_id":373,"product_count":0},{"id":360,"name":"Reflective Vests","parent_id":321,"product_count":0},{"id":330,"name":"Rear Sprockets","parent_id":315,"product_count":0},{"id":99,"name":"Rain Boots","parent_id":90,"product_count":0},{"id":92,"name":"Pumps","parent_id":3,"product_count":0},{"id":170,"name":"Printed T-Shirts","parent_id":150,"product_count":0},{"id":171,"name":"Polos","parent_id":150,"product_count":0},{"id":35,"name":"Pleated Skirts","parent_id":9,"product_count":0},{"id":324,"name":"Pistons","parent_id":314,"product_count":0},{"id":36,"name":"Pencil Skirts","parent_id":9,"product_count":0},{"id":24,"name":"Parkas","parent_id":7,"product_count":0},{"id":162,"name":"Parkas","parent_id":148,"product_count":0},{"id":13,"name":"Pants and Leggings","parent_id":2,"product_count":0},{"id":152,"name":"Pants","parent_id":143,"product_count":0},{"id":158,"name":"Pajamas ","parent_id":143,"product_count":0},{"id":208,"name":"Pajamas","parent_id":158,"product_count":0},{"id":223,"name":"Oxfords","parent_id":214,"product_count":0},{"id":30,"name":"Oversized Sweatshirts","parent_id":8,"product_count":0},{"id":98,"name":"Over-the-Knee Boots","parent_id":90,"product_count":0},{"id":207,"name":"Other Underwear","parent_id":157,"product_count":0},{"id":332,"name":"Other Transmission Parts","parent_id":315,"product_count":0},{"id":79,"name":"Other Swimwear","parent_id":15,"product_count":0},{"id":31,"name":"Other Sweatshirts","parent_id":8,"product_count":0},{"id":168,"name":"Other Sweatshirts","parent_id":149,"product_count":0},{"id":347,"name":"Other Suspension Parts","parent_id":318,"product_count":0},{"id":198,"name":"Other Suits and Sets","parent_id":155,"product_count":0},{"id":89,"name":"Other Sportswear","parent_id":17,"product_count":0},{"id":203,"name":"Other Sportswear","parent_id":156,"product_count":0},{"id":107,"name":"Other Sneakers","parent_id":93,"product_count":0},{"id":222,"name":"Other Sneakers","parent_id":213,"product_count":0},{"id":37,"name":"Other Skirts","parent_id":9,"product_count":0},{"id":74,"name":"Other Shorts","parent_id":14,"product_count":0},{"id":193,"name":"Other Shorts","parent_id":154,"product_count":0},{"id":218,"name":"Other Shoes","parent_id":144,"product_count":0},{"id":178,"name":"Other Shirts","parent_id":151,"product_count":0},{"id":104,"name":"Other Sandals","parent_id":91,"product_count":0},{"id":234,"name":"Other Sandals ","parent_id":216,"product_count":0},{"id":183,"name":"Other Pants","parent_id":152,"product_count":0},{"id":212,"name":"Other Nightwear","parent_id":158,"product_count":0},{"id":137,"name":"Other Makeup","parent_id":129,"product_count":0},{"id":128,"name":"Other Jewelry","parent_id":117,"product_count":0},{"id":62,"name":"Other Jeans","parent_id":12,"product_count":0},{"id":188,"name":"Other Jeans","parent_id":153,"product_count":0},{"id":116,"name":"Other Handbags","parent_id":108,"product_count":0},{"id":327,"name":"Other Engine Parts","parent_id":314,"product_count":0},{"id":338,"name":"Other Electrical Parts","parent_id":316,"product_count":0},{"id":49,"name":"Other Dresses","parent_id":10,"product_count":0},{"id":343,"name":"Other Braking Parts","parent_id":317,"product_count":0},{"id":100,"name":"Other Boots","parent_id":90,"product_count":0},{"id":230,"name":"Other Boots","parent_id":215,"product_count":0},{"id":353,"name":"Other Body Parts","parent_id":319,"product_count":0},{"id":239,"name":"Other Bags","parent_id":145,"product_count":0},{"id":247,"name":"Other Accessories","parent_id":146,"product_count":0},{"id":56,"name":"Other ","parent_id":11,"product_count":0},{"id":69,"name":"Other ","parent_id":13,"product_count":0},{"id":83,"name":"Other ","parent_id":16,"product_count":0},{"id":142,"name":"Other","parent_id":129,"product_count":0},{"id":164,"name":"Other ","parent_id":148,"product_count":0},{"id":173,"name":"Other","parent_id":150,"product_count":0},{"id":226,"name":"Other ","parent_id":214,"product_count":0},{"id":357,"name":"Other ","parent_id":320,"product_count":0},{"id":363,"name":"Other ","parent_id":321,"product_count":0},{"id":367,"name":"Ordinary Bazin","parent_id":364,"product_count":0},{"id":76,"name":"One-Piece Swimsuits","parent_id":15,"product_count":0},{"id":40,"name":"Occasion Dresses","parent_id":10,"product_count":0},{"id":210,"name":"Night Tops","parent_id":158,"product_count":0},{"id":209,"name":"Night Shorts","parent_id":158,"product_count":0},{"id":124,"name":"Necklaces","parent_id":117,"product_count":0},{"id":349,"name":"Mudguards","parent_id":319,"product_count":0},{"id":313,"name":"Motorcycles","parent_id":null,"product_count":0},{"id":138,"name":"Moisturizers","parent_id":129,"product_count":0},{"id":373,"name":"Mobile Phones & Tablets","parent_id":372,"product_count":0},{"id":348,"name":"Mirrors","parent_id":319,"product_count":0},{"id":38,"name":"Mini Dresses","parent_id":10,"product_count":0},{"id":228,"name":"Military Boots","parent_id":215,"product_count":0},{"id":34,"name":"Midi Skirts","parent_id":9,"product_count":0},{"id":19,"name":"Men","parent_id":null,"product_count":0},{"id":80,"name":"Maternity Tops","parent_id":16,"product_count":0},{"id":82,"name":"Maternity Pants","parent_id":16,"product_count":0},{"id":48,"name":"Maternity Dresses","parent_id":10,"product_count":0},{"id":81,"name":"Maternity Dresses","parent_id":16,"product_count":0},{"id":16,"name":"Maternity","parent_id":2,"product_count":0},{"id":341,"name":"Master Cylinders","parent_id":317,"product_count":0},{"id":140,"name":"Masks","parent_id":129,"product_count":0},{"id":136,"name":"Mascaras","parent_id":129,"product_count":0},{"id":129,"name":"Makeup","parent_id":6,"product_count":0},{"id":51,"name":"Long Sleeve Tops","parent_id":11,"product_count":0},{"id":174,"name":"Long Sleeve Shirts","parent_id":151,"product_count":0},{"id":32,"name":"Long Skirts","parent_id":9,"product_count":0},{"id":39,"name":"Long Dresses","parent_id":10,"product_count":0},{"id":94,"name":"Loafers","parent_id":3,"product_count":0},{"id":225,"name":"Loafers","parent_id":214,"product_count":0},{"id":44,"name":"Little Black Dresses","parent_id":10,"product_count":0},{"id":134,"name":"Lipsticks","parent_id":129,"product_count":0},{"id":22,"name":"Light Jackets","parent_id":7,"product_count":0},{"id":160,"name":"Light Jackets","parent_id":148,"product_count":0},{"id":65,"name":"Leggings","parent_id":13,"product_count":0},{"id":231,"name":"Leather Sandals","parent_id":216,"product_count":0},{"id":113,"name":"Leather Handbags","parent_id":108,"product_count":0},{"id":85,"name":"Jogging Suits","parent_id":17,"product_count":0},{"id":199,"name":"Jogging Suits","parent_id":156,"product_count":0},{"id":117,"name":"Jewelry","parent_id":5,"product_count":0},{"id":12,"name":"Jeans","parent_id":2,"product_count":0},{"id":153,"name":"Jeans","parent_id":143,"product_count":0},{"id":375,"name":"iPhones","parent_id":373,"product_count":0},{"id":356,"name":"Inner Tubes","parent_id":320,"product_count":0},{"id":334,"name":"Ignition Coils","parent_id":316,"product_count":0},{"id":337,"name":"Horns","parent_id":316,"product_count":0},{"id":28,"name":"Hoodies","parent_id":8,"product_count":0},{"id":165,"name":"Hoodies","parent_id":149,"product_count":0},{"id":221,"name":"High-Top Sneakers","parent_id":213,"product_count":0},{"id":358,"name":"Helmets","parent_id":321,"product_count":0},{"id":101,"name":"Heeled Sandals","parent_id":91,"product_count":0},{"id":120,"name":"Hats and Caps","parent_id":5,"product_count":0},{"id":242,"name":"Hats and Caps","parent_id":146,"product_count":0},{"id":108,"name":"Handbags","parent_id":4,"product_count":0},{"id":131,"name":"Haircare","parent_id":6,"product_count":0},{"id":122,"name":"Gloves","parent_id":5,"product_count":0},{"id":359,"name":"Gloves","parent_id":321,"product_count":0},{"id":259,"name":"Girls' Shoes","parent_id":253,"product_count":0},{"id":258,"name":"Girls' Clothing","parent_id":253,"product_count":0},{"id":260,"name":"Girls' Accessories","parent_id":253,"product_count":0},{"id":253,"name":"Girls (2–12 years)","parent_id":20,"product_count":0},{"id":18,"name":"Generic","parent_id":2,"product_count":0},{"id":27,"name":"Generic","parent_id":7,"product_count":0},{"id":376,"name":"Gaming Phones","parent_id":373,"product_count":0},{"id":132,"name":"Fragrances","parent_id":6,"product_count":0},{"id":250,"name":"Fragrances","parent_id":147,"product_count":0},{"id":133,"name":"Foundations","parent_id":129,"product_count":0},{"id":345,"name":"Forks","parent_id":318,"product_count":0},{"id":202,"name":"Football Outfits","parent_id":156,"product_count":0},{"id":352,"name":"Foot Pegs","parent_id":319,"product_count":0},{"id":378,"name":"Foldable Phones","parent_id":373,"product_count":0},{"id":95,"name":"Flip Flops","parent_id":3,"product_count":0},{"id":232,"name":"Flip Flops","parent_id":216,"product_count":0},{"id":102,"name":"Flat Sandals","parent_id":91,"product_count":0},{"id":60,"name":"Flare Jeans","parent_id":12,"product_count":0},{"id":84,"name":"Fitness Outfits","parent_id":17,"product_count":0},{"id":220,"name":"Fashion Sneakers","parent_id":213,"product_count":0},{"id":237,"name":"Fanny Packs","parent_id":145,"product_count":0},{"id":350,"name":"Fairings","parent_id":319,"product_count":0},{"id":186,"name":"Faded Jeans","parent_id":153,"product_count":0},{"id":71,"name":"Fabric Shorts","parent_id":14,"product_count":0},{"id":190,"name":"Fabric Shorts","parent_id":154,"product_count":0},{"id":114,"name":"Fabric Handbags","parent_id":108,"product_count":0},{"id":135,"name":"Eyeshadows","parent_id":129,"product_count":0},{"id":46,"name":"Evening Dresses","parent_id":10,"product_count":0},{"id":103,"name":"Espadrilles","parent_id":91,"product_count":0},{"id":314,"name":"Engine Parts","parent_id":313,"product_count":0},{"id":326,"name":"Engine Gaskets","parent_id":314,"product_count":0},{"id":41,"name":"Elegant Dresses","parent_id":10,"product_count":0},{"id":372,"name":"Electronics","parent_id":null,"product_count":0},{"id":316,"name":"Electrical","parent_id":313,"product_count":0},{"id":127,"name":"Earrings","parent_id":117,"product_count":0},{"id":381,"name":"Dual SIM Phones","parent_id":373,"product_count":0},{"id":10,"name":"Dresses","parent_id":2,"product_count":0},{"id":214,"name":"Dress Shoes","parent_id":144,"product_count":0},{"id":176,"name":"Dress Shirts","parent_id":151,"product_count":0},{"id":187,"name":"Distressed Jeans","parent_id":153,"product_count":0},{"id":224,"name":"Derbies","parent_id":214,"product_count":0},{"id":70,"name":"Denim Shorts","parent_id":14,"product_count":0},{"id":189,"name":"Denim Shorts","parent_id":154,"product_count":0},{"id":61,"name":"Denim Pants","parent_id":12,"product_count":0},{"id":45,"name":"Denim Dresses","parent_id":10,"product_count":0},{"id":323,"name":"Cylinders","parent_id":314,"product_count":0},{"id":55,"name":"Crop Tops","parent_id":11,"product_count":0},{"id":7,"name":"Coats and Jackets","parent_id":2,"product_count":0},{"id":148,"name":"Coats and Jackets","parent_id":143,"product_count":0},{"id":111,"name":"Clutches","parent_id":4,"product_count":0},{"id":331,"name":"Clutches","parent_id":315,"product_count":0},{"id":2,"name":"Clothing","parent_id":1,"product_count":0},{"id":143,"name":"Clothing","parent_id":19,"product_count":0},{"id":29,"name":"Classic Sweatshirts","parent_id":8,"product_count":0},{"id":166,"name":"Classic Sweatshirts","parent_id":149,"product_count":0},{"id":63,"name":"Classic Pants","parent_id":12,"product_count":0},{"id":67,"name":"Classic Pants","parent_id":13,"product_count":0},{"id":179,"name":"Classic Pants","parent_id":152,"product_count":0},{"id":180,"name":"Chino Pants","parent_id":152,"product_count":0},{"id":20,"name":"Children","parent_id":null,"product_count":0},{"id":328,"name":"Chains","parent_id":315,"product_count":0},{"id":105,"name":"Casual Sneakers","parent_id":93,"product_count":0},{"id":177,"name":"Casual Shirts","parent_id":151,"product_count":0},{"id":42,"name":"Casual Dresses","parent_id":10,"product_count":0},{"id":66,"name":"Cargo Pants","parent_id":13,"product_count":0},{"id":181,"name":"Cargo Pants","parent_id":152,"product_count":0},{"id":336,"name":"Bulbs / Lighting","parent_id":316,"product_count":0},{"id":205,"name":"Briefs","parent_id":157,"product_count":0},{"id":238,"name":"Briefcases","parent_id":145,"product_count":0},{"id":317,"name":"Braking","parent_id":313,"product_count":0},{"id":340,"name":"Brake Pads","parent_id":317,"product_count":0},{"id":342,"name":"Brake Levers","parent_id":317,"product_count":0},{"id":339,"name":"Brake Discs","parent_id":317,"product_count":0},{"id":125,"name":"Bracelets","parent_id":117,"product_count":0},{"id":246,"name":"Bracelets","parent_id":146,"product_count":0},{"id":263,"name":"Boys' Shoes","parent_id":254,"product_count":0},{"id":262,"name":"Boys' Clothing","parent_id":254,"product_count":0},{"id":264,"name":"Boys' Accessories","parent_id":254,"product_count":0},{"id":254,"name":"Boys (2–12 years)","parent_id":20,"product_count":0},{"id":58,"name":"Boyfriend Jeans","parent_id":12,"product_count":0},{"id":204,"name":"Boxers","parent_id":157,"product_count":0},{"id":90,"name":"Boots","parent_id":3,"product_count":0},{"id":215,"name":"Boots","parent_id":144,"product_count":0},{"id":319,"name":"Bodywork & Trim","parent_id":313,"product_count":0},{"id":251,"name":"Body Hygiene","parent_id":147,"product_count":0},{"id":53,"name":"Blouses","parent_id":11,"product_count":0},{"id":23,"name":"Blazers","parent_id":7,"product_count":0},{"id":161,"name":"Blazers","parent_id":148,"product_count":0},{"id":75,"name":"Bikinis","parent_id":15,"product_count":0},{"id":72,"name":"Bermuda Shorts","parent_id":14,"product_count":0},{"id":192,"name":"Bermuda Shorts","parent_id":154,"product_count":0},{"id":118,"name":"Belts","parent_id":5,"product_count":0},{"id":240,"name":"Belts","parent_id":146,"product_count":0},{"id":147,"name":"Beauty & Hygiene","parent_id":19,"product_count":0},{"id":261,"name":"Beauty & Hygiene","parent_id":253,"product_count":0},{"id":265,"name":"Beauty & Hygiene","parent_id":254,"product_count":0},{"id":6,"name":"Beauty","parent_id":1,"product_count":0},{"id":346,"name":"Bearings","parent_id":318,"product_count":0},{"id":249,"name":"Beard Care","parent_id":147,"product_count":0},{"id":73,"name":"Beach Shorts","parent_id":14,"product_count":0},{"id":47,"name":"Beach Dresses","parent_id":10,"product_count":0},{"id":112,"name":"Beach Bags","parent_id":4,"product_count":0},{"id":364,"name":"Bazin","parent_id":2,"product_count":0},{"id":333,"name":"Batteries","parent_id":316,"product_count":0},{"id":50,"name":"Basic T-Shirts","parent_id":11,"product_count":0},{"id":169,"name":"Basic T-Shirts","parent_id":150,"product_count":0},{"id":4,"name":"Bags","parent_id":1,"product_count":0},{"id":145,"name":"Bags","parent_id":19,"product_count":0},{"id":109,"name":"Backpacks","parent_id":4,"product_count":0},{"id":235,"name":"Backpacks","parent_id":145,"product_count":0},{"id":256,"name":"Baby Shoes","parent_id":252,"product_count":0},{"id":255,"name":"Baby Clothing","parent_id":252,"product_count":0},{"id":257,"name":"Baby Accessories","parent_id":252,"product_count":0},{"id":252,"name":"Babies (0–24 months)","parent_id":20,"product_count":0},{"id":362,"name":"Anti-theft Devices","parent_id":321,"product_count":0},{"id":141,"name":"Anti-Aging Creams","parent_id":129,"product_count":0},{"id":97,"name":"Ankle Boots","parent_id":90,"product_count":0},{"id":227,"name":"Ankle Boots","parent_id":215,"product_count":0},{"id":374,"name":"Android Smartphones","parent_id":373,"product_count":0},{"id":371,"name":"Air Max","parent_id":144,"product_count":0},{"id":370,"name":"Air Jordan","parent_id":144,"product_count":0},{"id":369,"name":"Air Force","parent_id":144,"product_count":0},{"id":5,"name":"Accessories","parent_id":1,"product_count":0},{"id":146,"name":"Accessories","parent_id":19,"product_count":0},{"id":321,"name":"Accessories","parent_id":313,"product_count":0},{"id":379,"name":"5G Smartphones","parent_id":373,"product_count":0},{"id":197,"name":"3-Piece Suits","parent_id":155,"product_count":0},{"id":196,"name":"2-Piece Suits","parent_id":155,"product_count":0},{"id":366,"name":" (Semi-Rich) Bazin","parent_id":364,"product_count":0}]}
+{
+  "categories": [
+    {
+      "id": 167,
+      "name": "Zip-Up Sweatshirts",
+      "image": "category_681088b4904a86.05228144.jpeg",
+      "parent_id": 149
+    },
+    {
+      "id": 64,
+      "name": "Yoga Pants",
+      "image": "category_680f39bfdcf7b1.89256992.jpeg",
+      "parent_id": 12
+    },
+    {
+      "id": 68,
+      "name": "Yoga Pants",
+      "image": "category_680f3a8266f9e4.79861159.jpeg",
+      "parent_id": 13
+    },
+    {
+      "id": 96,
+      "name": "Work Shoes",
+      "image": "category_680f421a900db8.92852938.jpg",
+      "parent_id": 3
+    },
+    {
+      "id": 229,
+      "name": "Work Boots",
+      "image": "category_68109788741ee6.90635714.jpg",
+      "parent_id": 215
+    },
+    {
+      "id": 1,
+      "name": "Women",
+      "image": "category_680e93f49c4d41.46034739.jpg",
+      "parent_id": null
+    },
+    {
+      "id": 21,
+      "name": "Winter Coats",
+      "image": "category_680f2c9b1edfd9.20688941.jpg",
+      "parent_id": 7
+    },
+    {
+      "id": 159,
+      "name": "Winter Coats",
+      "image": "category_681086f086fa34.82895544.jpg",
+      "parent_id": 148
+    },
+    {
+      "id": 123,
+      "name": "Watches",
+      "image": "category_680f4892b03a63.21895540.jpg",
+      "parent_id": 5
+    },
+    {
+      "id": 241,
+      "name": "Watches",
+      "image": "category_68109a906d4555.13749004.jpg",
+      "parent_id": 146
+    },
+    {
+      "id": 245,
+      "name": "Wallets",
+      "image": "category_68109af53e0e17.84042809.jpg",
+      "parent_id": 146
+    },
+    {
+      "id": 335,
+      "name": "Voltage Regulators",
+      "image": "category_6810b7d1220430.39498306.jpg",
+      "parent_id": 316
+    },
+    {
+      "id": 368,
+      "name": "VIP Bazin",
+      "image": "category_682458ef529f55.29018826.jpg",
+      "parent_id": 364
+    },
+    {
+      "id": 325,
+      "name": "Valves",
+      "image": "category_6810b6129751c7.59726833.jpg",
+      "parent_id": 314
+    },
+    {
+      "id": 157,
+      "name": "Underwear",
+      "image": "category_68108419692f97.95860917.jpg",
+      "parent_id": 143
+    },
+    {
+      "id": 25,
+      "name": "Trench Coats",
+      "image": "category_680f2d52692515.31253817.jpg",
+      "parent_id": 7
+    },
+    {
+      "id": 163,
+      "name": "Trench Coats",
+      "image": "category_681087b87e10d6.52208751.jpg",
+      "parent_id": 148
+    },
+    {
+      "id": 110,
+      "name": "Travel Bags",
+      "image": "category_680f45180895e5.92574078.jpg",
+      "parent_id": 4
+    },
+    {
+      "id": 236,
+      "name": "Travel Bags",
+      "image": "category_681099d5cea098.52680449.jpg",
+      "parent_id": 145
+    },
+    {
+      "id": 361,
+      "name": "Travel Bags",
+      "image": "category_6810baf91d6f07.57737891.webp",
+      "parent_id": 321
+    },
+    {
+      "id": 315,
+      "name": "Transmission",
+      "image": "category_6810b4c8099b53.35686028.jpg",
+      "parent_id": 313
+    },
+    {
+      "id": 11,
+      "name": "Tops and T-Shirts",
+      "image": "category_680e9a12c03832.55436221.jpg",
+      "parent_id": 2
+    },
+    {
+      "id": 320,
+      "name": "Tires & Wheels",
+      "image": "category_6810b53cd4a179.41552704.jpg",
+      "parent_id": 313
+    },
+    {
+      "id": 354,
+      "name": "Tires",
+      "image": "category_6810ba218400a4.94708794.jpg",
+      "parent_id": 320
+    },
+    {
+      "id": 244,
+      "name": "Ties and Bow Ties",
+      "image": "category_68109adbc493b7.26796121.jpg",
+      "parent_id": 146
+    },
+    {
+      "id": 77,
+      "name": "Tankinis",
+      "image": "category_680f3c5cc5e529.94811984.jpg",
+      "parent_id": 15
+    },
+    {
+      "id": 52,
+      "name": "Tank Tops",
+      "image": "category_680f3641329fb8.79605398.webp",
+      "parent_id": 11
+    },
+    {
+      "id": 172,
+      "name": "Tank Tops",
+      "image": "category_68108960726366.30626649.jpg",
+      "parent_id": 150
+    },
+    {
+      "id": 206,
+      "name": "Tank Tops",
+      "image": "category_68108f48807426.13022002.jpg",
+      "parent_id": 157
+    },
+    {
+      "id": 150,
+      "name": "T-Shirts and Polos",
+      "image": "category_6810830d89c8e4.91839443.jpeg",
+      "parent_id": 143
+    },
+    {
+      "id": 15,
+      "name": "Swimwear",
+      "image": "category_680e9c2c127664.22352743.webp",
+      "parent_id": 2
+    },
+    {
+      "id": 78,
+      "name": "Swim Shorts",
+      "image": "category_680f3c7cbd1275.04385104.jpeg",
+      "parent_id": 15
+    },
+    {
+      "id": 8,
+      "name": "Sweatshirts",
+      "image": "category_680e988b7a6383.11485552.jpg",
+      "parent_id": 2
+    },
+    {
+      "id": 149,
+      "name": "Sweatshirts",
+      "image": "category_681082e7d6cf83.90357516.webp",
+      "parent_id": 143
+    },
+    {
+      "id": 318,
+      "name": "Suspension",
+      "image": "category_6810b513d2ee79.49475351.jpg",
+      "parent_id": 313
+    },
+    {
+      "id": 121,
+      "name": "Sunglasses",
+      "image": "category_680f4864772592.41097224.webp",
+      "parent_id": 5
+    },
+    {
+      "id": 243,
+      "name": "Sunglasses",
+      "image": "category_68109ac4923b44.97781961.jpg",
+      "parent_id": 146
+    },
+    {
+      "id": 155,
+      "name": "Suits and Sets",
+      "image": "category_681083cc70eff5.58908366.jpg",
+      "parent_id": 143
+    },
+    {
+      "id": 182,
+      "name": "Suit Pants",
+      "image": "category_68108af1725502.52020107.jpg",
+      "parent_id": 152
+    },
+    {
+      "id": 195,
+      "name": "Suit Pants",
+      "image": "category_68108cd6280842.24556075.jpg",
+      "parent_id": 155
+    },
+    {
+      "id": 194,
+      "name": "Suit Jackets",
+      "image": "category_68108cb6611709.59733232.jpg",
+      "parent_id": 155
+    },
+    {
+      "id": 43,
+      "name": "Strapless Dresses",
+      "image": "category_680f3282cf18a6.73990957.webp",
+      "parent_id": 10
+    },
+    {
+      "id": 59,
+      "name": "Straight-Leg Jeans",
+      "image": "category_680f37de3afad8.19539292.webp",
+      "parent_id": 12
+    },
+    {
+      "id": 185,
+      "name": "Straight Jeans",
+      "image": "category_68108b6999a8c3.31511794.jpg",
+      "parent_id": 153
+    },
+    {
+      "id": 385,
+      "name": "Starlink Routers",
+      "image": "category_686af2b987d512.08096581.jpg",
+      "parent_id": 382
+    },
+    {
+      "id": 383,
+      "name": "Starlink Kits",
+      "image": "category_686af2184c52e5.72317578.jpg",
+      "parent_id": 382
+    },
+    {
+      "id": 386,
+      "name": "Starlink Cables & Power",
+      "image": "category_686af2d4bf33d2.62035972.jpg",
+      "parent_id": 382
+    },
+    {
+      "id": 384,
+      "name": "Starlink Antennas",
+      "image": "category_686af27450dbd0.93361740.jpg",
+      "parent_id": 382
+    },
+    {
+      "id": 387,
+      "name": "Starlink Accessories",
+      "image": "category_686af309e50702.99995693.jpg",
+      "parent_id": 382
+    },
+    {
+      "id": 382,
+      "name": "Starlink",
+      "image": "category_686af113cf3439.94627025.jpg",
+      "parent_id": 372
+    },
+    {
+      "id": 329,
+      "name": "Sprockets",
+      "image": "category_6810b6fe761b31.11195231.jpg",
+      "parent_id": 315
+    },
+    {
+      "id": 17,
+      "name": "Sportswear",
+      "image": "category_680e9d007eae78.37576978.webp",
+      "parent_id": 2
+    },
+    {
+      "id": 156,
+      "name": "Sportswear",
+      "image": "category_681083e4d73cd9.38085668.jpg",
+      "parent_id": 143
+    },
+    {
+      "id": 88,
+      "name": "Sports T-Shirts",
+      "image": "category_680f3f0d44f1d4.55790029.jpg",
+      "parent_id": 17
+    },
+    {
+      "id": 200,
+      "name": "Sports T-Shirts",
+      "image": "category_68108dc07bc183.57119882.jpg",
+      "parent_id": 156
+    },
+    {
+      "id": 106,
+      "name": "Sports Sneakers",
+      "image": "category_680f4453e30f78.71500075.jpg",
+      "parent_id": 93
+    },
+    {
+      "id": 219,
+      "name": "Sports Sneakers",
+      "image": "category_68109510c9c247.83587853.jpg",
+      "parent_id": 213
+    },
+    {
+      "id": 191,
+      "name": "Sports Shorts",
+      "image": "category_68108c7086c301.13442923.jpg",
+      "parent_id": 154
+    },
+    {
+      "id": 201,
+      "name": "Sports Shorts",
+      "image": "category_68108e2abdd020.74823763.jpg",
+      "parent_id": 156
+    },
+    {
+      "id": 87,
+      "name": "Sports Leggings",
+      "image": "category_680f3ed050eed5.43490699.jpeg",
+      "parent_id": 17
+    },
+    {
+      "id": 86,
+      "name": "Sports Bras",
+      "image": "category_680f3ea01789d0.01784127.jpg",
+      "parent_id": 17
+    },
+    {
+      "id": 322,
+      "name": "Spark Plugs",
+      "image": "category_6810b5a59c4938.25745188.jpg",
+      "parent_id": 314
+    },
+    {
+      "id": 93,
+      "name": "Sneakers",
+      "image": "category_680f4145410fb2.65555052.jpg",
+      "parent_id": 3
+    },
+    {
+      "id": 213,
+      "name": "Sneakers",
+      "image": "category_68109359beb529.99573662.jpg",
+      "parent_id": 144
+    },
+    {
+      "id": 184,
+      "name": "Slim Jeans",
+      "image": "category_68108b53dff156.77422555.webp",
+      "parent_id": 153
+    },
+    {
+      "id": 233,
+      "name": "Slides",
+      "image": "category_68109952bef307.31389891.jpeg",
+      "parent_id": 216
+    },
+    {
+      "id": 9,
+      "name": "Skirts",
+      "image": "category_680e98f1a6fa55.49832667.jpg",
+      "parent_id": 2
+    },
+    {
+      "id": 57,
+      "name": "Skinny Jeans",
+      "image": "category_680f37987b61e0.92251741.jpeg",
+      "parent_id": 12
+    },
+    {
+      "id": 130,
+      "name": "Skincare",
+      "image": "category_680f4a04b42cc0.94892940.webp",
+      "parent_id": 6
+    },
+    {
+      "id": 248,
+      "name": "Skincare",
+      "image": "category_68109c3ad41658.99898823.jpeg",
+      "parent_id": 147
+    },
+    {
+      "id": 115,
+      "name": "Shoulder Bags",
+      "image": "category_680f45cf9ad946.83205993.webp",
+      "parent_id": 108
+    },
+    {
+      "id": 14,
+      "name": "Shorts",
+      "image": "category_680e9b4948f996.41055803.webp",
+      "parent_id": 2
+    },
+    {
+      "id": 154,
+      "name": "Shorts",
+      "image": "category_68108399ccfbd8.65289000.jpeg",
+      "parent_id": 143
+    },
+    {
+      "id": 175,
+      "name": "Short Sleeve Shirts",
+      "image": "category_68108a0b7f8c80.78320591.jpg",
+      "parent_id": 151
+    },
+    {
+      "id": 33,
+      "name": "Short Skirts",
+      "image": "category_680f30b9a1ad43.10841990.webp",
+      "parent_id": 9
+    },
+    {
+      "id": 3,
+      "name": "Shoes",
+      "image": "category_680e95778b02d1.83388071.jpg",
+      "parent_id": 1
+    },
+    {
+      "id": 144,
+      "name": "Shoes",
+      "image": "category_681081ce959f75.26459678.jpg",
+      "parent_id": 19
+    },
+    {
+      "id": 344,
+      "name": "Shock Absorbers",
+      "image": "category_6810b8e5e56035.19534393.jpg",
+      "parent_id": 318
+    },
+    {
+      "id": 54,
+      "name": "Shirts",
+      "image": "category_680f3692998ef3.35726704.jpg",
+      "parent_id": 11
+    },
+    {
+      "id": 151,
+      "name": "Shirts",
+      "image": "category_681083295def49.67505614.png",
+      "parent_id": 143
+    },
+    {
+      "id": 139,
+      "name": "Serums",
+      "image": "category_680f4b30435291.17204925.jpeg",
+      "parent_id": 129
+    },
+    {
+      "id": 351,
+      "name": "Seats / Saddles",
+      "image": "category_6810b9d2c7d9b3.16541177.jpg",
+      "parent_id": 319
+    },
+    {
+      "id": 119,
+      "name": "Scarves and Shawls",
+      "image": "category_680f4824c55a49.81044074.jpeg",
+      "parent_id": 5
+    },
+    {
+      "id": 216,
+      "name": "Sandals and Flip Flops",
+      "image": "category_681093fc35d949.21518540.jpg",
+      "parent_id": 144
+    },
+    {
+      "id": 91,
+      "name": "Sandals",
+      "image": "category_680f40fb83f184.81603896.jpeg",
+      "parent_id": 3
+    },
+    {
+      "id": 217,
+      "name": "Safety Shoes",
+      "image": "category_6810941d28ec77.24891023.jpg",
+      "parent_id": 144
+    },
+    {
+      "id": 377,
+      "name": "Rugged Phones",
+      "image": "category_68513e24d9cb29.68928608.jpg",
+      "parent_id": 373
+    },
+    {
+      "id": 211,
+      "name": "Robes",
+      "image": "category_6810923881e885.89235366.jpg",
+      "parent_id": 158
+    },
+    {
+      "id": 126,
+      "name": "Rings",
+      "image": "category_680f491b370cc9.06138355.jpg",
+      "parent_id": 117
+    },
+    {
+      "id": 355,
+      "name": "Rims",
+      "image": "category_6810ba56883ad2.47924218.jpg",
+      "parent_id": 320
+    },
+    {
+      "id": 365,
+      "name": "Rich Bazin",
+      "image": "category_68245862b13e81.23304799.jpg",
+      "parent_id": 364
+    },
+    {
+      "id": 380,
+      "name": "Refurbished Smartphones",
+      "image": "category_68513e9d4b1c14.41963547.jpg",
+      "parent_id": 373
+    },
+    {
+      "id": 360,
+      "name": "Reflective Vests",
+      "image": "category_6810badd26c684.74144545.jpg",
+      "parent_id": 321
+    },
+    {
+      "id": 330,
+      "name": "Rear Sprockets",
+      "image": "category_6810b71d74d5c7.81052014.jpg",
+      "parent_id": 315
+    },
+    {
+      "id": 99,
+      "name": "Rain Boots",
+      "image": "category_680f42f75d5e19.16842002.jpg",
+      "parent_id": 90
+    },
+    {
+      "id": 92,
+      "name": "Pumps",
+      "image": "category_680f411a6d3e54.04155572.webp",
+      "parent_id": 3
+    },
+    {
+      "id": 170,
+      "name": "Printed T-Shirts",
+      "image": "category_68108937a02f93.87925897.jpeg",
+      "parent_id": 150
+    },
+    {
+      "id": 171,
+      "name": "Polos",
+      "image": "category_68108949e5dbf2.30905182.jpg",
+      "parent_id": 150
+    },
+    {
+      "id": 35,
+      "name": "Pleated Skirts",
+      "image": "category_680f30f81e8106.57750432.webp",
+      "parent_id": 9
+    },
+    {
+      "id": 324,
+      "name": "Pistons",
+      "image": "category_6810b6031b6ab8.89717124.jpg",
+      "parent_id": 314
+    },
+    {
+      "id": 36,
+      "name": "Pencil Skirts",
+      "image": "category_680f312a8f12c8.68392296.jpg",
+      "parent_id": 9
+    },
+    {
+      "id": 24,
+      "name": "Parkas",
+      "image": "category_680f2d2b1ac1d5.52170949.jpeg",
+      "parent_id": 7
+    },
+    {
+      "id": 162,
+      "name": "Parkas",
+      "image": "category_681087774f1991.22982423.jpeg",
+      "parent_id": 148
+    },
+    {
+      "id": 13,
+      "name": "Pants and Leggings",
+      "image": "category_680e9b08de98d8.35728112.webp",
+      "parent_id": 2
+    },
+    {
+      "id": 152,
+      "name": "Pants",
+      "image": "category_6810835001ba01.23366304.jpeg",
+      "parent_id": 143
+    },
+    {
+      "id": 158,
+      "name": "Pajamas ",
+      "image": "category_6810845857b203.89839530.webp",
+      "parent_id": 143
+    },
+    {
+      "id": 208,
+      "name": "Pajamas",
+      "image": "category_6810913a648aa4.77646684.jpg",
+      "parent_id": 158
+    },
+    {
+      "id": 223,
+      "name": "Oxfords",
+      "image": "category_681095ecc0d826.27579382.jpg",
+      "parent_id": 214
+    },
+    {
+      "id": 30,
+      "name": "Oversized Sweatshirts",
+      "image": "category_680f301abc6e39.31048457.jpg",
+      "parent_id": 8
+    },
+    {
+      "id": 98,
+      "name": "Over-the-Knee Boots",
+      "image": "category_680f42d590a4c5.79733242.jpeg",
+      "parent_id": 90
+    },
+    {
+      "id": 207,
+      "name": "Other Underwear",
+      "image": "category_68108f5c7c3ee7.87101827.jpg",
+      "parent_id": 157
+    },
+    {
+      "id": 332,
+      "name": "Other Transmission Parts",
+      "image": "category_6810b75dec5344.91983868.jpg",
+      "parent_id": 315
+    },
+    {
+      "id": 79,
+      "name": "Other Swimwear",
+      "image": "category_680f3c93e35c76.55141540.webp",
+      "parent_id": 15
+    },
+    {
+      "id": 31,
+      "name": "Other Sweatshirts",
+      "image": "category_680f303b213453.55173527.jpeg",
+      "parent_id": 8
+    },
+    {
+      "id": 168,
+      "name": "Other Sweatshirts",
+      "image": "category_681088c9999493.67339710.jpg",
+      "parent_id": 149
+    },
+    {
+      "id": 347,
+      "name": "Other Suspension Parts",
+      "image": "category_6810b9447a91b9.86067136.jpg",
+      "parent_id": 318
+    },
+    {
+      "id": 198,
+      "name": "Other Suits and Sets",
+      "image": "category_68108d2ee91592.95025715.jpg",
+      "parent_id": 155
+    },
+    {
+      "id": 89,
+      "name": "Other Sportswear",
+      "image": "category_680f3f53aee871.14262290.webp",
+      "parent_id": 17
+    },
+    {
+      "id": 203,
+      "name": "Other Sportswear",
+      "image": "category_68108e918f9c32.60409492.jpg",
+      "parent_id": 156
+    },
+    {
+      "id": 107,
+      "name": "Other Sneakers",
+      "image": "category_680f446f315266.96107686.webp",
+      "parent_id": 93
+    },
+    {
+      "id": 222,
+      "name": "Other Sneakers",
+      "image": "category_68109555c585d2.81199530.jpg",
+      "parent_id": 213
+    },
+    {
+      "id": 37,
+      "name": "Other Skirts",
+      "image": "category_680f3141f2a050.94834483.webp",
+      "parent_id": 9
+    },
+    {
+      "id": 74,
+      "name": "Other Shorts",
+      "image": "category_680f3b5dad99d9.21416546.jpeg",
+      "parent_id": 14
+    },
+    {
+      "id": 193,
+      "name": "Other Shorts",
+      "image": "category_68108c9497d138.05570697.jpg",
+      "parent_id": 154
+    },
+    {
+      "id": 218,
+      "name": "Other Shoes",
+      "image": "category_6810946381c876.01431113.jpeg",
+      "parent_id": 144
+    },
+    {
+      "id": 178,
+      "name": "Other Shirts",
+      "image": "category_68108a58979411.04518341.jpg",
+      "parent_id": 151
+    },
+    {
+      "id": 104,
+      "name": "Other Sandals",
+      "image": "category_680f43b630c0b7.59650791.webp",
+      "parent_id": 91
+    },
+    {
+      "id": 234,
+      "name": "Other Sandals ",
+      "image": "category_681099745d5731.05000232.webp",
+      "parent_id": 216
+    },
+    {
+      "id": 183,
+      "name": "Other Pants",
+      "image": "category_68108b18b23333.22433409.webp",
+      "parent_id": 152
+    },
+    {
+      "id": 212,
+      "name": "Other Nightwear",
+      "image": "category_681092b527e9d7.60764380.jpeg",
+      "parent_id": 158
+    },
+    {
+      "id": 137,
+      "name": "Other Makeup",
+      "image": "category_680f4af90aca71.88840867.jpeg",
+      "parent_id": 129
+    },
+    {
+      "id": 128,
+      "name": "Other Jewelry",
+      "image": "category_680f494a246cd0.32260040.jpg",
+      "parent_id": 117
+    },
+    {
+      "id": 62,
+      "name": "Other Jeans",
+      "image": "category_680f3827ece061.07779799.jpg",
+      "parent_id": 12
+    },
+    {
+      "id": 188,
+      "name": "Other Jeans",
+      "image": "category_68108be321c092.81847589.jpg",
+      "parent_id": 153
+    },
+    {
+      "id": 116,
+      "name": "Other Handbags",
+      "image": "category_680f460999c3d0.41611016.webp",
+      "parent_id": 108
+    },
+    {
+      "id": 327,
+      "name": "Other Engine Parts",
+      "image": "category_6810b64094d8c6.75345569.jpg",
+      "parent_id": 314
+    },
+    {
+      "id": 338,
+      "name": "Other Electrical Parts",
+      "image": "category_6810b82bcaa8a4.96475180.jpg",
+      "parent_id": 316
+    },
+    {
+      "id": 49,
+      "name": "Other Dresses",
+      "image": "category_680f338ff23710.07209863.jpg",
+      "parent_id": 10
+    },
+    {
+      "id": 343,
+      "name": "Other Braking Parts",
+      "image": "category_6810b8c5088951.23655192.jpg",
+      "parent_id": 317
+    },
+    {
+      "id": 100,
+      "name": "Other Boots",
+      "image": "category_680f43150bde44.90183916.jpg",
+      "parent_id": 90
+    },
+    {
+      "id": 230,
+      "name": "Other Boots",
+      "image": "category_681098a0af7385.15145296.jpg",
+      "parent_id": 215
+    },
+    {
+      "id": 353,
+      "name": "Other Body Parts",
+      "image": "category_6810b9ff0d5050.81664669.jpg",
+      "parent_id": 319
+    },
+    {
+      "id": 239,
+      "name": "Other Bags",
+      "image": "category_68109a295da9e4.67627648.jpg",
+      "parent_id": 145
+    },
+    {
+      "id": 247,
+      "name": "Other Accessories",
+      "image": "category_68109b1a94e2f8.55022694.jpg",
+      "parent_id": 146
+    },
+    {
+      "id": 56,
+      "name": "Other ",
+      "image": "category_680f36ee7b2563.43354920.webp",
+      "parent_id": 11
+    },
+    {
+      "id": 69,
+      "name": "Other ",
+      "image": "category_680f3a9fd20d72.75798040.jpg",
+      "parent_id": 13
+    },
+    {
+      "id": 83,
+      "name": "Other ",
+      "image": "category_680f3db6318d74.94595535.jpeg",
+      "parent_id": 16
+    },
+    {
+      "id": 142,
+      "name": "Other",
+      "image": "category_680f4b75d810f7.17163491.jpg",
+      "parent_id": 129
+    },
+    {
+      "id": 164,
+      "name": "Other ",
+      "image": "category_681087ef47ffe1.77773058.webp",
+      "parent_id": 148
+    },
+    {
+      "id": 173,
+      "name": "Other",
+      "image": "category_6810897df41835.69689301.jpg",
+      "parent_id": 150
+    },
+    {
+      "id": 226,
+      "name": "Other ",
+      "image": "category_6810963a9869f0.48723715.jpg",
+      "parent_id": 214
+    },
+    {
+      "id": 357,
+      "name": "Other ",
+      "image": "category_6810ba852973e5.31064691.jpg",
+      "parent_id": 320
+    },
+    {
+      "id": 363,
+      "name": "Other ",
+      "image": "category_6810bb46cb2fa3.88184518.jpg",
+      "parent_id": 321
+    },
+    {
+      "id": 367,
+      "name": "Ordinary Bazin",
+      "image": "category_682458aee44bf3.54758936.jpg",
+      "parent_id": 364
+    },
+    {
+      "id": 76,
+      "name": "One-Piece Swimsuits",
+      "image": "category_680f3c34220584.02701684.jpg",
+      "parent_id": 15
+    },
+    {
+      "id": 40,
+      "name": "Occasion Dresses",
+      "image": "category_680f32294d8e05.15850946.jpg",
+      "parent_id": 10
+    },
+    {
+      "id": 210,
+      "name": "Night Tops",
+      "image": "category_68109215434be2.62297515.jpg",
+      "parent_id": 158
+    },
+    {
+      "id": 209,
+      "name": "Night Shorts",
+      "image": "category_68109185a37ad4.48959003.jpg",
+      "parent_id": 158
+    },
+    {
+      "id": 124,
+      "name": "Necklaces",
+      "image": "category_680f48f888c894.37631614.jpg",
+      "parent_id": 117
+    },
+    {
+      "id": 349,
+      "name": "Mudguards",
+      "image": "category_6810b986917ab2.87979994.jpg",
+      "parent_id": 319
+    },
+    {
+      "id": 313,
+      "name": "Motorcycles",
+      "image": "category_6810b4617deb57.61579000.jpg",
+      "parent_id": null
+    },
+    {
+      "id": 138,
+      "name": "Moisturizers",
+      "image": "category_680f4b1f60c319.47640165.webp",
+      "parent_id": 129
+    },
+    {
+      "id": 373,
+      "name": "Mobile Phones & Tablets",
+      "image": "category_68513cc9d6b6e5.61454821.jpg",
+      "parent_id": 372
+    },
+    {
+      "id": 348,
+      "name": "Mirrors",
+      "image": "category_6810b97535a0b5.92409937.jpg",
+      "parent_id": 319
+    },
+    {
+      "id": 38,
+      "name": "Mini Dresses",
+      "image": "category_680f31a31c2727.67551441.webp",
+      "parent_id": 10
+    },
+    {
+      "id": 228,
+      "name": "Military Boots",
+      "image": "category_68109771598688.83617489.jpg",
+      "parent_id": 215
+    },
+    {
+      "id": 34,
+      "name": "Midi Skirts",
+      "image": "category_680f30dadf98f7.84185108.webp",
+      "parent_id": 9
+    },
+    {
+      "id": 19,
+      "name": "Men",
+      "image": "category_680e9e4578e109.85607858.jpg",
+      "parent_id": null
+    },
+    {
+      "id": 80,
+      "name": "Maternity Tops",
+      "image": "category_680f3d072f5641.29966518.jpg",
+      "parent_id": 16
+    },
+    {
+      "id": 82,
+      "name": "Maternity Pants",
+      "image": "category_680f3d66533fc6.16185565.jpg",
+      "parent_id": 16
+    },
+    {
+      "id": 48,
+      "name": "Maternity Dresses",
+      "image": "category_680f3371ad6323.56517159.jpeg",
+      "parent_id": 10
+    },
+    {
+      "id": 81,
+      "name": "Maternity Dresses",
+      "image": "category_680f3d537e91c2.52832506.webp",
+      "parent_id": 16
+    },
+    {
+      "id": 16,
+      "name": "Maternity",
+      "image": "category_680e9c7e366010.04721567.webp",
+      "parent_id": 2
+    },
+    {
+      "id": 341,
+      "name": "Master Cylinders",
+      "image": "category_6810b89a709f86.84937189.jpg",
+      "parent_id": 317
+    },
+    {
+      "id": 140,
+      "name": "Masks",
+      "image": "category_680f4b42573b04.10992258.webp",
+      "parent_id": 129
+    },
+    {
+      "id": 136,
+      "name": "Mascaras",
+      "image": "category_680f4ac93ae7d2.58818437.webp",
+      "parent_id": 129
+    },
+    {
+      "id": 129,
+      "name": "Makeup",
+      "image": "category_680f49cb54ca80.17445551.jpeg",
+      "parent_id": 6
+    },
+    {
+      "id": 51,
+      "name": "Long Sleeve Tops",
+      "image": "category_680f3609123e48.46765805.jpeg",
+      "parent_id": 11
+    },
+    {
+      "id": 174,
+      "name": "Long Sleeve Shirts",
+      "image": "category_681089b91c3361.67114280.jpg",
+      "parent_id": 151
+    },
+    {
+      "id": 32,
+      "name": "Long Skirts",
+      "image": "category_680f3086e59889.85428324.webp",
+      "parent_id": 9
+    },
+    {
+      "id": 39,
+      "name": "Long Dresses",
+      "image": "category_680f320ba27993.22404302.jpg",
+      "parent_id": 10
+    },
+    {
+      "id": 94,
+      "name": "Loafers",
+      "image": "category_680f41e19c4ef5.86241993.webp",
+      "parent_id": 3
+    },
+    {
+      "id": 225,
+      "name": "Loafers",
+      "image": "category_6810961b3f01f6.67275319.jpg",
+      "parent_id": 214
+    },
+    {
+      "id": 44,
+      "name": "Little Black Dresses",
+      "image": "category_680f329bb39b36.52819244.webp",
+      "parent_id": 10
+    },
+    {
+      "id": 134,
+      "name": "Lipsticks",
+      "image": "category_680f4a9bf0baf0.32616783.jpeg",
+      "parent_id": 129
+    },
+    {
+      "id": 22,
+      "name": "Light Jackets",
+      "image": "category_680f2ce3d0a674.65688720.jpg",
+      "parent_id": 7
+    },
+    {
+      "id": 160,
+      "name": "Light Jackets",
+      "image": "category_68108722ebac60.50161451.jpg",
+      "parent_id": 148
+    },
+    {
+      "id": 65,
+      "name": "Leggings",
+      "image": "category_680f3a19925020.86529043.jpeg",
+      "parent_id": 13
+    },
+    {
+      "id": 231,
+      "name": "Leather Sandals",
+      "image": "category_681098cef11635.32034279.jpg",
+      "parent_id": 216
+    },
+    {
+      "id": 113,
+      "name": "Leather Handbags",
+      "image": "category_680f458cb3c7c3.59671897.jpg",
+      "parent_id": 108
+    },
+    {
+      "id": 85,
+      "name": "Jogging Suits",
+      "image": "category_680f3e73f21739.96332608.webp",
+      "parent_id": 17
+    },
+    {
+      "id": 199,
+      "name": "Jogging Suits",
+      "image": "category_68108da6cc5e77.68466380.jpg",
+      "parent_id": 156
+    },
+    {
+      "id": 117,
+      "name": "Jewelry",
+      "image": "category_680f47e0181f86.22016876.webp",
+      "parent_id": 5
+    },
+    {
+      "id": 12,
+      "name": "Jeans",
+      "image": "category_680e9aa143dc73.07025382.jpg",
+      "parent_id": 2
+    },
+    {
+      "id": 153,
+      "name": "Jeans",
+      "image": "category_6810837c28f120.52295245.webp",
+      "parent_id": 143
+    },
+    {
+      "id": 375,
+      "name": "iPhones",
+      "image": "category_68513dafd7b777.08195064.jpg",
+      "parent_id": 373
+    },
+    {
+      "id": 356,
+      "name": "Inner Tubes",
+      "image": "category_6810ba6cde1931.51337548.jpg",
+      "parent_id": 320
+    },
+    {
+      "id": 334,
+      "name": "Ignition Coils",
+      "image": "category_6810b7b72fc6a3.17535136.jpg",
+      "parent_id": 316
+    },
+    {
+      "id": 337,
+      "name": "Horns",
+      "image": "category_6810b816582028.93726614.jpg",
+      "parent_id": 316
+    },
+    {
+      "id": 28,
+      "name": "Hoodies",
+      "image": "category_680f2fe8828da2.16712516.jpg",
+      "parent_id": 8
+    },
+    {
+      "id": 165,
+      "name": "Hoodies",
+      "image": "category_6810884da6e518.09624414.jpg",
+      "parent_id": 149
+    },
+    {
+      "id": 221,
+      "name": "High-Top Sneakers",
+      "image": "category_6810953d6f57a8.18298693.jpg",
+      "parent_id": 213
+    },
+    {
+      "id": 358,
+      "name": "Helmets",
+      "image": "category_6810bab79e3467.90357684.jpg",
+      "parent_id": 321
+    },
+    {
+      "id": 101,
+      "name": "Heeled Sandals",
+      "image": "category_680f436530d3d4.17028697.jpg",
+      "parent_id": 91
+    },
+    {
+      "id": 120,
+      "name": "Hats and Caps",
+      "image": "category_680f48437bece8.50256022.jpg",
+      "parent_id": 5
+    },
+    {
+      "id": 242,
+      "name": "Hats and Caps",
+      "image": "category_68109aa94cf3e9.25744875.jpg",
+      "parent_id": 146
+    },
+    {
+      "id": 108,
+      "name": "Handbags",
+      "image": "category_680f44e9ab8363.99950920.webp",
+      "parent_id": 4
+    },
+    {
+      "id": 131,
+      "name": "Haircare",
+      "image": "category_680f4a16b327f7.01925166.webp",
+      "parent_id": 6
+    },
+    {
+      "id": 122,
+      "name": "Gloves",
+      "image": "category_680f487c00b5c6.76901105.webp",
+      "parent_id": 5
+    },
+    {
+      "id": 359,
+      "name": "Gloves",
+      "image": "category_6810bac945f056.37533701.jpg",
+      "parent_id": 321
+    },
+    {
+      "id": 259,
+      "name": "Girls' Shoes",
+      "image": "category_6810a10f1ba220.92468502.jpg",
+      "parent_id": 253
+    },
+    {
+      "id": 258,
+      "name": "Girls' Clothing",
+      "image": "category_6810a0d8c6ab07.87107089.jpg",
+      "parent_id": 253
+    },
+    {
+      "id": 260,
+      "name": "Girls' Accessories",
+      "image": "category_6810a1259ddbf0.07467733.jpg",
+      "parent_id": 253
+    },
+    {
+      "id": 253,
+      "name": "Girls (2–12 years)",
+      "image": "category_68109e5b4510a3.13342099.jpg",
+      "parent_id": 20
+    },
+    {
+      "id": 18,
+      "name": "Generic",
+      "image": "category_680e9d7481e143.63589150.jpg",
+      "parent_id": 2
+    },
+    {
+      "id": 27,
+      "name": "Generic",
+      "image": "category_680f2ee8414c70.92690603.webp",
+      "parent_id": 7
+    },
+    {
+      "id": 376,
+      "name": "Gaming Phones",
+      "image": "category_68513de0e20772.53173665.webp",
+      "parent_id": 373
+    },
+    {
+      "id": 132,
+      "name": "Fragrances",
+      "image": "category_680f4a394d6256.63419913.jpeg",
+      "parent_id": 6
+    },
+    {
+      "id": 250,
+      "name": "Fragrances",
+      "image": "category_68109c75cac392.05787450.jpg",
+      "parent_id": 147
+    },
+    {
+      "id": 133,
+      "name": "Foundations",
+      "image": "category_680f4a86ba9c94.33342694.jpeg",
+      "parent_id": 129
+    },
+    {
+      "id": 345,
+      "name": "Forks",
+      "image": "category_6810b8fa752e32.99064074.jpg",
+      "parent_id": 318
+    },
+    {
+      "id": 202,
+      "name": "Football Outfits",
+      "image": "category_68108e777e6e75.98440121.jpg",
+      "parent_id": 156
+    },
+    {
+      "id": 352,
+      "name": "Foot Pegs",
+      "image": "category_6810b9e9cc53e9.34385968.jpg",
+      "parent_id": 319
+    },
+    {
+      "id": 378,
+      "name": "Foldable Phones",
+      "image": "category_68513e45d9e237.81043537.jpg",
+      "parent_id": 373
+    },
+    {
+      "id": 95,
+      "name": "Flip Flops",
+      "image": "category_680f41f5241047.93124878.webp",
+      "parent_id": 3
+    },
+    {
+      "id": 232,
+      "name": "Flip Flops",
+      "image": "category_68109921354da4.69256711.jpg",
+      "parent_id": 216
+    },
+    {
+      "id": 102,
+      "name": "Flat Sandals",
+      "image": "category_680f4381163a40.68958035.jpg",
+      "parent_id": 91
+    },
+    {
+      "id": 60,
+      "name": "Flare Jeans",
+      "image": "category_680f37f30f9679.01589790.webp",
+      "parent_id": 12
+    },
+    {
+      "id": 84,
+      "name": "Fitness Outfits",
+      "image": "category_680f3e5ce09202.58413835.jpg",
+      "parent_id": 17
+    },
+    {
+      "id": 220,
+      "name": "Fashion Sneakers",
+      "image": "category_68109529e60317.22873444.jpg",
+      "parent_id": 213
+    },
+    {
+      "id": 237,
+      "name": "Fanny Packs",
+      "image": "category_681099ee7de245.03091364.jpg",
+      "parent_id": 145
+    },
+    {
+      "id": 350,
+      "name": "Fairings",
+      "image": "category_6810b999a1bc01.58084385.jpg",
+      "parent_id": 319
+    },
+    {
+      "id": 186,
+      "name": "Faded Jeans",
+      "image": "category_68108b93c08304.05778766.jpg",
+      "parent_id": 153
+    },
+    {
+      "id": 71,
+      "name": "Fabric Shorts",
+      "image": "category_680f3afad02527.04694571.jpg",
+      "parent_id": 14
+    },
+    {
+      "id": 190,
+      "name": "Fabric Shorts",
+      "image": "category_68108c3ec1c903.47199154.jpg",
+      "parent_id": 154
+    },
+    {
+      "id": 114,
+      "name": "Fabric Handbags",
+      "image": "category_680f45a3e4d634.00842859.jpeg",
+      "parent_id": 108
+    },
+    {
+      "id": 135,
+      "name": "Eyeshadows",
+      "image": "category_680f4aaf0604d7.47586871.jpg",
+      "parent_id": 129
+    },
+    {
+      "id": 46,
+      "name": "Evening Dresses",
+      "image": "category_680f32e2a6fcf5.57337671.jpg",
+      "parent_id": 10
+    },
+    {
+      "id": 103,
+      "name": "Espadrilles",
+      "image": "category_680f439ab21671.92529676.jpeg",
+      "parent_id": 91
+    },
+    {
+      "id": 314,
+      "name": "Engine Parts",
+      "image": "category_6810b49b3a7053.76391901.jpg",
+      "parent_id": 313
+    },
+    {
+      "id": 326,
+      "name": "Engine Gaskets",
+      "image": "category_6810b6239f5653.54812895.jpg",
+      "parent_id": 314
+    },
+    {
+      "id": 41,
+      "name": "Elegant Dresses",
+      "image": "category_680f324d16a8b7.33145323.jpg",
+      "parent_id": 10
+    },
+    {
+      "id": 372,
+      "name": "Electronics",
+      "image": "category_68513bb54c7960.14763567.jpg",
+      "parent_id": null
+    },
+    {
+      "id": 316,
+      "name": "Electrical",
+      "image": "category_6810b4ddad9363.89594037.jpeg",
+      "parent_id": 313
+    },
+    {
+      "id": 127,
+      "name": "Earrings",
+      "image": "category_680f493082e739.47606562.jpg",
+      "parent_id": 117
+    },
+    {
+      "id": 381,
+      "name": "Dual SIM Phones",
+      "image": "category_68513ee053c430.57064368.jpg",
+      "parent_id": 373
+    },
+    {
+      "id": 10,
+      "name": "Dresses",
+      "image": "category_680e99b5346bc7.08000640.jpg",
+      "parent_id": 2
+    },
+    {
+      "id": 214,
+      "name": "Dress Shoes",
+      "image": "category_68109399864912.59223407.jpg",
+      "parent_id": 144
+    },
+    {
+      "id": 176,
+      "name": "Dress Shirts",
+      "image": "category_68108a24382e27.35405322.jpg",
+      "parent_id": 151
+    },
+    {
+      "id": 187,
+      "name": "Distressed Jeans",
+      "image": "category_68108ba6a30931.02383465.jpg",
+      "parent_id": 153
+    },
+    {
+      "id": 224,
+      "name": "Derbies",
+      "image": "category_6810960684f550.48546314.jpg",
+      "parent_id": 214
+    },
+    {
+      "id": 70,
+      "name": "Denim Shorts",
+      "image": "category_680f3ad8c0e4a6.53952448.webp",
+      "parent_id": 14
+    },
+    {
+      "id": 189,
+      "name": "Denim Shorts",
+      "image": "category_68108c0fddacd6.96629934.jpg",
+      "parent_id": 154
+    },
+    {
+      "id": 61,
+      "name": "Denim Pants",
+      "image": "category_680f380a826d90.21505981.jpeg",
+      "parent_id": 12
+    },
+    {
+      "id": 45,
+      "name": "Denim Dresses",
+      "image": "category_680f32b72f6e61.42194023.jpg",
+      "parent_id": 10
+    },
+    {
+      "id": 323,
+      "name": "Cylinders",
+      "image": "category_6810b5bf3858f7.20503123.jpg",
+      "parent_id": 314
+    },
+    {
+      "id": 55,
+      "name": "Crop Tops",
+      "image": "category_680f36c7d8b719.41563314.webp",
+      "parent_id": 11
+    },
+    {
+      "id": 7,
+      "name": "Coats and Jackets",
+      "image": "category_680e97df896c23.13913957.jpg",
+      "parent_id": 2
+    },
+    {
+      "id": 148,
+      "name": "Coats and Jackets",
+      "image": "category_681082cf4d53e1.92079759.webp",
+      "parent_id": 143
+    },
+    {
+      "id": 111,
+      "name": "Clutches",
+      "image": "category_680f45306c8ca6.73322019.webp",
+      "parent_id": 4
+    },
+    {
+      "id": 331,
+      "name": "Clutches",
+      "image": "category_6810b748482863.87647469.jpg",
+      "parent_id": 315
+    },
+    {
+      "id": 2,
+      "name": "Clothing",
+      "image": "category_680e941a954576.26725844.jpg",
+      "parent_id": 1
+    },
+    {
+      "id": 143,
+      "name": "Clothing",
+      "image": "category_681080cd5740e5.54646687.jpg",
+      "parent_id": 19
+    },
+    {
+      "id": 29,
+      "name": "Classic Sweatshirts",
+      "image": "category_680f3000aa1bb4.97790548.jpg",
+      "parent_id": 8
+    },
+    {
+      "id": 166,
+      "name": "Classic Sweatshirts",
+      "image": "category_68108880d1a617.72697589.jpeg",
+      "parent_id": 149
+    },
+    {
+      "id": 63,
+      "name": "Classic Pants",
+      "image": "category_680f397d6eaf18.27071369.jpeg",
+      "parent_id": 12
+    },
+    {
+      "id": 67,
+      "name": "Classic Pants",
+      "image": "category_680f3a6490e637.38830643.jpeg",
+      "parent_id": 13
+    },
+    {
+      "id": 179,
+      "name": "Classic Pants",
+      "image": "category_68108a8f4f1fc8.10926180.jpg",
+      "parent_id": 152
+    },
+    {
+      "id": 180,
+      "name": "Chino Pants",
+      "image": "category_68108aafe39093.89649143.jpg",
+      "parent_id": 152
+    },
+    {
+      "id": 20,
+      "name": "Children",
+      "image": "category_680e9e6c9dd2f2.84054721.jpg",
+      "parent_id": null
+    },
+    {
+      "id": 328,
+      "name": "Chains",
+      "image": "category_6810b6eaee2050.21687892.jpg",
+      "parent_id": 315
+    },
+    {
+      "id": 105,
+      "name": "Casual Sneakers",
+      "image": "category_680f442c94a377.68988217.jpeg",
+      "parent_id": 93
+    },
+    {
+      "id": 177,
+      "name": "Casual Shirts",
+      "image": "category_68108a3d393941.89201591.jpg",
+      "parent_id": 151
+    },
+    {
+      "id": 42,
+      "name": "Casual Dresses",
+      "image": "category_680f3260334b03.87522825.jpg",
+      "parent_id": 10
+    },
+    {
+      "id": 66,
+      "name": "Cargo Pants",
+      "image": "category_680f3a3eec7ce1.05204394.jpg",
+      "parent_id": 13
+    },
+    {
+      "id": 181,
+      "name": "Cargo Pants",
+      "image": "category_68108adb304851.02896706.jpg",
+      "parent_id": 152
+    },
+    {
+      "id": 336,
+      "name": "Bulbs / Lighting",
+      "image": "category_6810b7f8ebe194.26922306.jpg",
+      "parent_id": 316
+    },
+    {
+      "id": 205,
+      "name": "Briefs",
+      "image": "category_68108f293794c8.05311565.jpg",
+      "parent_id": 157
+    },
+    {
+      "id": 238,
+      "name": "Briefcases",
+      "image": "category_68109a09b5e6a3.98269948.jpg",
+      "parent_id": 145
+    },
+    {
+      "id": 317,
+      "name": "Braking",
+      "image": "category_6810b4f63b3319.60964058.jpg",
+      "parent_id": 313
+    },
+    {
+      "id": 340,
+      "name": "Brake Pads",
+      "image": "category_6810b885c20bf0.20030508.jpg",
+      "parent_id": 317
+    },
+    {
+      "id": 342,
+      "name": "Brake Levers",
+      "image": "category_6810b8b0594441.07197142.jpg",
+      "parent_id": 317
+    },
+    {
+      "id": 339,
+      "name": "Brake Discs",
+      "image": "category_6810b8585c93f3.03612186.jpg",
+      "parent_id": 317
+    },
+    {
+      "id": 125,
+      "name": "Bracelets",
+      "image": "category_680f4909babf79.81489133.jpg",
+      "parent_id": 117
+    },
+    {
+      "id": 246,
+      "name": "Bracelets",
+      "image": "category_68109b05bd7371.74921010.jpg",
+      "parent_id": 146
+    },
+    {
+      "id": 263,
+      "name": "Boys' Shoes",
+      "image": "category_6810a2a4ed5299.23747695.jpg",
+      "parent_id": 254
+    },
+    {
+      "id": 262,
+      "name": "Boys' Clothing",
+      "image": "category_6810a287b1c6b3.61308180.jpg",
+      "parent_id": 254
+    },
+    {
+      "id": 264,
+      "name": "Boys' Accessories",
+      "image": "category_6810a2eb2790d1.46261419.jpg",
+      "parent_id": 254
+    },
+    {
+      "id": 254,
+      "name": "Boys (2–12 years)",
+      "image": "category_68109e814abf16.65932224.jpg",
+      "parent_id": 20
+    },
+    {
+      "id": 58,
+      "name": "Boyfriend Jeans",
+      "image": "category_680f37c2abcdc2.30649815.jpg",
+      "parent_id": 12
+    },
+    {
+      "id": 204,
+      "name": "Boxers",
+      "image": "category_68108f0f28d153.08319251.jpg",
+      "parent_id": 157
+    },
+    {
+      "id": 90,
+      "name": "Boots",
+      "image": "category_680f40d5d62a27.86926754.webp",
+      "parent_id": 3
+    },
+    {
+      "id": 215,
+      "name": "Boots",
+      "image": "category_681093bfadc398.39777114.jpeg",
+      "parent_id": 144
+    },
+    {
+      "id": 319,
+      "name": "Bodywork & Trim",
+      "image": "category_6810b5260b72d4.05469403.jpg",
+      "parent_id": 313
+    },
+    {
+      "id": 251,
+      "name": "Body Hygiene",
+      "image": "category_68109c8d994016.75124197.jpg",
+      "parent_id": 147
+    },
+    {
+      "id": 53,
+      "name": "Blouses",
+      "image": "category_680f365f9c16b7.63506552.jpg",
+      "parent_id": 11
+    },
+    {
+      "id": 23,
+      "name": "Blazers",
+      "image": "category_680f2d0ccd84d2.96593528.jpg",
+      "parent_id": 7
+    },
+    {
+      "id": 161,
+      "name": "Blazers",
+      "image": "category_6810874c106b65.56097822.jpg",
+      "parent_id": 148
+    },
+    {
+      "id": 75,
+      "name": "Bikinis",
+      "image": "category_680f3c136d2d04.20315122.webp",
+      "parent_id": 15
+    },
+    {
+      "id": 72,
+      "name": "Bermuda Shorts",
+      "image": "category_680f3b29908671.15193031.jpg",
+      "parent_id": 14
+    },
+    {
+      "id": 192,
+      "name": "Bermuda Shorts",
+      "image": "category_68108c81390f94.60063708.jpg",
+      "parent_id": 154
+    },
+    {
+      "id": 118,
+      "name": "Belts",
+      "image": "category_680f480c5cad49.82547086.jpeg",
+      "parent_id": 5
+    },
+    {
+      "id": 240,
+      "name": "Belts",
+      "image": "category_68109a68e2d2f6.70687536.jpg",
+      "parent_id": 146
+    },
+    {
+      "id": 147,
+      "name": "Beauty & Hygiene",
+      "image": "category_681082559111a7.37974406.jpeg",
+      "parent_id": 19
+    },
+    {
+      "id": 261,
+      "name": "Beauty & Hygiene",
+      "image": "category_6810a13a47a934.39051645.jpg",
+      "parent_id": 253
+    },
+    {
+      "id": 265,
+      "name": "Beauty & Hygiene",
+      "image": "category_6810a30772f8f9.84641113.jpg",
+      "parent_id": 254
+    },
+    {
+      "id": 6,
+      "name": "Beauty",
+      "image": "category_680e9760a1bbc0.05447771.jpg",
+      "parent_id": 1
+    },
+    {
+      "id": 346,
+      "name": "Bearings",
+      "image": "category_6810b9142acce9.91634072.jpg",
+      "parent_id": 318
+    },
+    {
+      "id": 249,
+      "name": "Beard Care",
+      "image": "category_68109c5cb24e03.01166710.jpg",
+      "parent_id": 147
+    },
+    {
+      "id": 73,
+      "name": "Beach Shorts",
+      "image": "category_680f3b40e502b4.90163272.webp",
+      "parent_id": 14
+    },
+    {
+      "id": 47,
+      "name": "Beach Dresses",
+      "image": "category_680f3316cc7045.78973979.jpg",
+      "parent_id": 10
+    },
+    {
+      "id": 112,
+      "name": "Beach Bags",
+      "image": "category_680f45675fe499.27469476.jpg",
+      "parent_id": 4
+    },
+    {
+      "id": 364,
+      "name": "Bazin",
+      "image": "category_6824574f946893.15719318.jpg",
+      "parent_id": 2
+    },
+    {
+      "id": 333,
+      "name": "Batteries",
+      "image": "category_6810b79fdc0ce1.50930976.jpg",
+      "parent_id": 316
+    },
+    {
+      "id": 50,
+      "name": "Basic T-Shirts",
+      "image": "category_680f35ea4bc2d3.86788537.jpg",
+      "parent_id": 11
+    },
+    {
+      "id": 169,
+      "name": "Basic T-Shirts",
+      "image": "category_681088f4c70ee4.05990084.webp",
+      "parent_id": 150
+    },
+    {
+      "id": 4,
+      "name": "Bags",
+      "image": "category_680e964c5320f7.52441686.jpg",
+      "parent_id": 1
+    },
+    {
+      "id": 145,
+      "name": "Bags",
+      "image": "category_681081f0bb9d04.37075745.jpg",
+      "parent_id": 19
+    },
+    {
+      "id": 109,
+      "name": "Backpacks",
+      "image": "category_680f4502761884.80525711.jpg",
+      "parent_id": 4
+    },
+    {
+      "id": 235,
+      "name": "Backpacks",
+      "image": "category_681099c0932594.54408952.jpg",
+      "parent_id": 145
+    },
+    {
+      "id": 256,
+      "name": "Baby Shoes",
+      "image": "category_68109ef5ec11a5.40025864.jpg",
+      "parent_id": 252
+    },
+    {
+      "id": 255,
+      "name": "Baby Clothing",
+      "image": "category_68109edb1beb45.27734220.jpg",
+      "parent_id": 252
+    },
+    {
+      "id": 257,
+      "name": "Baby Accessories",
+      "image": "category_68109f2eaa8e59.73614903.jpg",
+      "parent_id": 252
+    },
+    {
+      "id": 252,
+      "name": "Babies (0–24 months)",
+      "image": "category_68109e35b1b601.99908472.jpg",
+      "parent_id": 20
+    },
+    {
+      "id": 362,
+      "name": "Anti-theft Devices",
+      "image": "category_6810bb0e4892d7.21785223.jpg",
+      "parent_id": 321
+    },
+    {
+      "id": 141,
+      "name": "Anti-Aging Creams",
+      "image": "category_680f4b5b77c828.76067095.jpg",
+      "parent_id": 129
+    },
+    {
+      "id": 97,
+      "name": "Ankle Boots",
+      "image": "category_680f42b9cc7a84.71285797.jpeg",
+      "parent_id": 90
+    },
+    {
+      "id": 227,
+      "name": "Ankle Boots",
+      "image": "category_6810975852f2f1.79399414.jpg",
+      "parent_id": 215
+    },
+    {
+      "id": 374,
+      "name": "Android Smartphones",
+      "image": "category_68513d659ccc15.83959547.jpg",
+      "parent_id": 373
+    },
+    {
+      "id": 371,
+      "name": "Air Max",
+      "image": "category_683198ef418583.03047953.jpg",
+      "parent_id": 144
+    },
+    {
+      "id": 370,
+      "name": "Air Jordan",
+      "image": "category_682b0e699a5959.04696820.jpg",
+      "parent_id": 144
+    },
+    {
+      "id": 369,
+      "name": "Air Force",
+      "image": "category_682b0d8a141780.06668861.jpg",
+      "parent_id": 144
+    },
+    {
+      "id": 5,
+      "name": "Accessories",
+      "image": "category_680e96a98cde86.40913453.jpg",
+      "parent_id": 1
+    },
+    {
+      "id": 146,
+      "name": "Accessories",
+      "image": "category_6810821ad0ab59.64016203.webp",
+      "parent_id": 19
+    },
+    {
+      "id": 321,
+      "name": "Accessories",
+      "image": "category_6810b5636514a4.00661723.jpg",
+      "parent_id": 313
+    },
+    {
+      "id": 379,
+      "name": "5G Smartphones",
+      "image": "category_68513e72bdc1f9.80434014.jpg",
+      "parent_id": 373
+    },
+    {
+      "id": 197,
+      "name": "3-Piece Suits",
+      "image": "category_68108d0e21c984.33075092.jpg",
+      "parent_id": 155
+    },
+    {
+      "id": 196,
+      "name": "2-Piece Suits",
+      "image": "category_68108cef23e0e8.60629202.jpg",
+      "parent_id": 155
+    },
+    {
+      "id": 366,
+      "name": " (Semi-Rich) Bazin",
+      "image": "category_682458874467c5.54410861.jpg",
+      "parent_id": 364
+    }
+  ]
+}

@@ -1,6 +1,4 @@
 #include <softadastra/commerce/products/ProductFactory.hpp>
-#include <softadastra/commerce/products/ProductWithPromo.hpp>
-#include <softadastra/commerce/products/DigitalProduct.hpp>
 #include <softadastra/commerce/products/ProductBuilder.hpp>
 #include <iostream>
 
@@ -20,15 +18,6 @@ namespace softadastra::commerce::product
         try
         {
             const std::string type = data.value("type", "basic");
-
-            if (type == "promo")
-            {
-                return std::make_unique<ProductWithPromo>(data);
-            }
-            else if (type == "digital")
-            {
-                return std::make_unique<DigitalProduct>(data);
-            }
 
             Product product = ProductBuilder()
                                   .setTitle(data.value("title", ""))

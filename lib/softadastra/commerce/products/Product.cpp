@@ -1,4 +1,5 @@
 #include <softadastra/commerce/products/Product.hpp>
+#include <softadastra/commerce/products/ProductFactory.hpp>
 
 namespace softadastra::commerce::product
 {
@@ -32,5 +33,15 @@ namespace softadastra::commerce::product
             colors = std::move(other.colors);
         }
         return *this;
+    }
+
+    Product Product::fromJson(const nlohmann::json &j)
+    {
+        auto ptr = ProductFactory::createFromJson(j);
+        if (!ptr)
+        {
+            throw std::runtime_error("Invalid product JSON structure");
+        }
+        return *ptr;
     }
 }

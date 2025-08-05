@@ -1,1 +1,0 @@
-#include <softadastra/commerce/products/ProductWithPromo.hpp>

@@ -1,0 +1,1 @@
+#include <softadastra/commerce/cities/CityRepositoryJson.hpp>

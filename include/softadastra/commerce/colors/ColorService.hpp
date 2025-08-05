@@ -1,7 +1,8 @@
 #ifndef COLOR_SERVICE_HPP
 #define COLOR_SERVICE_HPP
 
-#include <softadastra/commerce/colors/ColorRepositoryJson.hpp>
+#include <softadastra/commerce/colors/Color.hpp>
+#include <softadastra/commerce/colors/ColorRepository.hpp>
 
 namespace softadastra::commerce::colors
 {
@@ -13,7 +14,7 @@ namespace softadastra::commerce::colors
         std::vector<Color> getAllColors() const;
 
     private:
-        ColorRepositoryJson repository;
+        ColorRepository repository;
     };
 }
 
