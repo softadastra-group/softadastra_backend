@@ -24,7 +24,7 @@ namespace softadastra::commerce::colors
         Color(Color &&) noexcept = default;
         Color &operator=(Color &&) noexcept = default;
 
-        const std::uint32_t getId() const { return id_; }
+        std::uint32_t getId() const { return id_; }
         const std::string getName() const { return name_; }
 
         void setId(std::uint32_t id) { id_ = id; }
