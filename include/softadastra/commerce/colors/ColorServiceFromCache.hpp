@@ -14,9 +14,6 @@ namespace softadastra::commerce::colors
 {
     class ColorServiceFromCache
     {
-    private:
-        ColorCache &cache;
-
     public:
         ColorServiceFromCache(ColorCache &cache) : cache(cache) {}
 
@@ -49,6 +46,9 @@ namespace softadastra::commerce::colors
                 return *it;
             return std::nullopt;
         }
+
+    private:
+        ColorCache &cache;
     };
 }
 

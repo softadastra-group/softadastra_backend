@@ -23,7 +23,7 @@ namespace softadastra::commerce::categories
         std::call_once(init_flag, [&]()
                        {
             std::vector<Category> loaded = CategoryService(jsonPathAll).getAllCategories();
-            std::cout << "📦 Catégories chargées à l'initialisation : " << loaded.size() << "\n";
+            std::cout << "Catégories chargées à l'initialisation : " << loaded.size() << "\n";
 
             g_categoryCache = std::make_unique<CategoryCache>(
                 jsonPathAll,
@@ -54,7 +54,7 @@ namespace softadastra::commerce::categories
             );
 
             g_categoryCache->getJson(); // warm-up
-            std::cout << "✅ [CategoryController] Cache initialisé à partir de all_categories.json\n"; });
+            std::cout << "[CategoryController] Cache initialisé à partir de all_categories.json\n"; });
 
         CROW_ROUTE(app, "/api/categories/all")
         ([]
