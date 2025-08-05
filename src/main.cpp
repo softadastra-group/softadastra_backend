@@ -6,6 +6,7 @@
 #include <softadastra/commerce/products/ProductController.hpp>
 #include <softadastra/commerce/categories/CategoryController.hpp>
 #include <softadastra/commerce/colors/ColorController.hpp>
+#include <softadastra/commerce/sizes/SizeController.hpp>
 
 #include <adastra/config/env/EnvBoot.hpp>
 #include <adastra/config/env/EnvLoader.hpp>
@@ -32,6 +33,7 @@ int main()
     softadastra::commerce::product::ProductController(app);
     softadastra::commerce::categories::CategoryController(app);
     softadastra::commerce::colors::ColorController(app);
+    softadastra::commerce::sizes::SizeController(app);
 
     app.port(port).concurrency(threads).run();
 
