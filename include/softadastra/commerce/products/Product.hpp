@@ -44,6 +44,8 @@ namespace softadastra::commerce::product
         void setSizes(const std::vector<std::string> &new_sizes) { sizes = new_sizes; }
         void setColors(const std::vector<std::string> &new_colors) { colors = new_colors; }
 
+        static Product fromJson(const nlohmann::json &j);
+
         json toJson() const
         {
             return {
@@ -59,22 +61,6 @@ namespace softadastra::commerce::product
                 {"colors", getColors()}};
         }
 
-        static Product fromJson(const json &j)
-        {
-            Product p(j.at("title"),
-                      j.at("image_url"),
-                      j.at("city_name"),
-                      j.at("country_image_url"),
-                      j.at("currency"),
-                      j.at("formatted_price"),
-                      j.at("converted_price"),
-                      j.at("sizes"),
-                      j.at("colors"));
-            p.setId(j["id"].get<std::uint32_t>());
-
-            return p;
-        }
-
     private:
         uint32_t id;
         std::string title;
@@ -87,13 +73,11 @@ namespace softadastra::commerce::product
         std::vector<std::string> sizes;
         std::vector<std::string> colors;
 
-        // Constructeur privé accessible uniquement par ProductBuilder
         Product() : id(0) {}
 
         friend class ProductBuilder;
 
     protected:
-        // Constructeur accessible uniquement aux classes dérivées
         Product(const std::string &title,
                 const std::string &image_url,
                 const std::string &city_name,

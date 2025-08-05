@@ -60,23 +60,27 @@ namespace softadastra::commerce::categories
             return j;
         }
 
-        static Category fromJson(const json &j)
+        static Category fromJson(const nlohmann::json &j)
         {
-            std::string name = j.at("name").get<std::string>();
-            std::optional<std::uint32_t> parentId;
-
+            std::optional<uint32_t> parentId;
             if (j.contains("parent_id") && !j["parent_id"].is_null())
             {
-                parentId = j["parent_id"].get<std::uint32_t>();
+                parentId = j["parent_id"].get<uint32_t>();
             }
 
-            std::uint32_t productCount = j.at("product_count");
-            std::string image_url = j.at("image_url").get<std::string>();
+            Category cat(
+                j.at("name").get<std::string>(),
+                parentId,
+                j.at("image").get<std::string>());
 
-            Category c(name, parentId, image_url);
-            c.setProductCount(productCount);
+            cat.setId(j.at("id").get<uint32_t>());
 
-            return c;
+            if (j.contains("product_count") && j["product_count"].is_number())
+            {
+                cat.setProductCount(j["product_count"].get<uint32_t>());
+            }
+
+            return cat;
         }
 
     private:

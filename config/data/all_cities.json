@@ -1,0 +1,34 @@
+{
+  "cities": [
+    {
+      "id": 1,
+      "name": "Kampala",
+      "country_id": 256
+    },
+    {
+      "id": 2,
+      "name": "Goma",
+      "country_id": 243
+    },
+    {
+      "id": 3,
+      "name": "Kinshasa",
+      "country_id": 243
+    },
+    {
+      "id": 4,
+      "name": "Entebbe",
+      "country_id": 256
+    },
+    {
+      "id": 5,
+      "name": "Bukavu",
+      "country_id": 243
+    },
+    {
+      "id": 6,
+      "name": "Jinja",
+      "country_id": 256
+    }
+  ]
+}

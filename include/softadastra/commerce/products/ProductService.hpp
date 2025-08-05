@@ -1,7 +1,8 @@
 #ifndef PRODUCT_SERVICE_HPP
 #define PRODUCT_SERVICE_HPP
 
-#include "Product.hpp"
+#include <softadastra/commerce/products/Product.hpp>
+#include <softadastra/commerce/products/ProductRepository.hpp>
 #include <vector>
 #include <string>
 
@@ -10,12 +11,14 @@ namespace softadastra::commerce::product
     class ProductService
     {
     public:
-        ProductService(const std::string &jsonPath);
-        std::vector<Product> getAllProducts();
+        explicit ProductService(const std::string &jsonPath);
+
+        std::vector<Product> getAllProducts() const;
+        void reload();
 
     private:
-        std::string jsonFilePath;
+        mutable ProductRepository repo;
     };
-};
+}
 
 #endif

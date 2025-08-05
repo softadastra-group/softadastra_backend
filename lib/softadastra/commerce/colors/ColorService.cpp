@@ -3,10 +3,11 @@
 namespace softadastra::commerce::colors
 {
     ColorService::ColorService(const std::string &jsonPath)
-        : repository(jsonPath) {}
+        : repository(jsonPath, "colors") {}
 
     std::vector<Color> ColorService::getAllColors() const
     {
-        return repository.getAllColors();
+        return repository.getAll();
     }
+
 }
