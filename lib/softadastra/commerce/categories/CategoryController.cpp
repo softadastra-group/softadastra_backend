@@ -5,11 +5,14 @@
 #include <softadastra/commerce/categories/CategoryJsonParser.hpp>
 
 #include <adastra/config/env/EnvLoader.hpp>
+#include <adastra/utils/json/JsonUtils.hpp>
 
 #include <nlohmann/json.hpp>
 #include <memory>
 #include <mutex>
 #include <iostream>
+
+using namespace adastra::utils::json;
 
 namespace softadastra::commerce::categories
 {
@@ -31,26 +34,11 @@ namespace softadastra::commerce::categories
                     return loaded;
                 },
                 [](const std::vector<Category>& categories) -> nlohmann::json {
-                    nlohmann::json j;
-                    j["categories"] = nlohmann::json::array();
-                    for (const auto& c : categories) {
-                        nlohmann::json item = {
-                            {"id", c.getId()},
-                            {"name", c.getName()},
-                            {"image_url", c.getImageUrl()},
-                            {"product_count", c.getProductCount()}
-                        };
-
-                        if (c.getParentId().has_value())
-                            item["parent_id"] = c.getParentId().value();
-                        else
-                            item["parent_id"] = nullptr;
-
-                        j["categories"].push_back(item);
-                    }
-                    return j;
+                   return serializeVector("categories", categories);
                 },
-                parseCategoryJson 
+                [](const nlohmann::json& j){
+                    return deserializeVector<Category>(j, "categories");
+                }
             );
 
             g_categoryCache->getJson(); // warm-up

@@ -5,12 +5,76 @@
 #include <vector>
 #include <cstdint>
 
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
+
 namespace softadastra::commerce::product
 {
     class ProductBuilder;
 
     class Product
     {
+    public:
+        Product(const Product &other) = default;
+        Product(Product &&other) noexcept;
+        Product &operator=(const Product &other);
+        Product &operator=(Product &&other) noexcept;
+        virtual ~Product() = default;
+
+        uint32_t getId() const { return id; }
+        const std::string &getTitle() const { return title; }
+        const std::string &getImageUrl() const { return image_url; }
+        const std::string &getCityName() const { return city_name; }
+        const std::string &getCountryImageUrl() const { return country_image_url; }
+        const std::string &getCurrency() const { return currency; }
+        const std::string &getFormattedPrice() const { return formatted_price; }
+        const std::string &getConvertedPrice() const { return converted_price; }
+        const std::vector<std::string> &getSizes() const { return sizes; }
+        const std::vector<std::string> &getColors() const { return colors; }
+
+        void setId(uint32_t new_id) { id = new_id; }
+        void setTitle(const std::string &new_title) { title = new_title; }
+        void setImageUrl(const std::string &new_image_url) { image_url = new_image_url; }
+        void setCityName(const std::string &new_city_name) { city_name = new_city_name; }
+        void setCountryImageUrl(const std::string &new_country_image_url) { country_image_url = new_country_image_url; }
+        void setCurrency(const std::string &new_currency) { currency = new_currency; }
+        void setFormattedPrice(const std::string &new_formatted_price) { formatted_price = new_formatted_price; }
+        void setConvertedPrice(const std::string &new_converted_price) { converted_price = new_converted_price; }
+        void setSizes(const std::vector<std::string> &new_sizes) { sizes = new_sizes; }
+        void setColors(const std::vector<std::string> &new_colors) { colors = new_colors; }
+
+        json toJson() const
+        {
+            return {
+                {"id", getId()},
+                {"title", getTitle()},
+                {"image_url", getImageUrl()},
+                {"city_name", getCityName()},
+                {"country_image_url", getCountryImageUrl()},
+                {"currency", getCurrency()},
+                {"formatted_price", getFormattedPrice()},
+                {"converted_price", getConvertedPrice()},
+                {"sizes", getSizes()},
+                {"colors", getColors()}};
+        }
+
+        static Product fromJson(const json &j)
+        {
+            Product p(j.at("title"),
+                      j.at("image_url"),
+                      j.at("city_name"),
+                      j.at("country_image_url"),
+                      j.at("currency"),
+                      j.at("formatted_price"),
+                      j.at("converted_price"),
+                      j.at("sizes"),
+                      j.at("colors"));
+            p.setId(j["id"].get<std::uint32_t>());
+
+            return p;
+        }
+
     private:
         uint32_t id;
         std::string title;
@@ -49,35 +113,6 @@ namespace softadastra::commerce::product
               converted_price(converted_price),
               sizes(sizes),
               colors(colors) {}
-
-    public:
-        Product(const Product &other) = default;
-        Product(Product &&other) noexcept;
-        Product &operator=(const Product &other);
-        Product &operator=(Product &&other) noexcept;
-        virtual ~Product() = default;
-
-        uint32_t getId() const { return id; }
-        const std::string &getTitle() const { return title; }
-        const std::string &getImageUrl() const { return image_url; }
-        const std::string &getCityName() const { return city_name; }
-        const std::string &getCountryImageUrl() const { return country_image_url; }
-        const std::string &getCurrency() const { return currency; }
-        const std::string &getFormattedPrice() const { return formatted_price; }
-        const std::string &getConvertedPrice() const { return converted_price; }
-        const std::vector<std::string> &getSizes() const { return sizes; }
-        const std::vector<std::string> &getColors() const { return colors; }
-
-        void setId(uint32_t new_id) { id = new_id; }
-        void setTitle(const std::string &new_title) { title = new_title; }
-        void setImageUrl(const std::string &new_image_url) { image_url = new_image_url; }
-        void setCityName(const std::string &new_city_name) { city_name = new_city_name; }
-        void setCountryImageUrl(const std::string &new_country_image_url) { country_image_url = new_country_image_url; }
-        void setCurrency(const std::string &new_currency) { currency = new_currency; }
-        void setFormattedPrice(const std::string &new_formatted_price) { formatted_price = new_formatted_price; }
-        void setConvertedPrice(const std::string &new_converted_price) { converted_price = new_converted_price; }
-        void setSizes(const std::vector<std::string> &new_sizes) { sizes = new_sizes; }
-        void setColors(const std::vector<std::string> &new_colors) { colors = new_colors; }
     };
 }
 

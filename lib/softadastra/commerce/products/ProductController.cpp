@@ -3,6 +3,8 @@
 #include <softadastra/commerce/products/ProductService.hpp>
 #include <adastra/config/env/EnvLoader.hpp>
 
+#include <adastra/utils/json/JsonUtils.hpp>
+
 #include <crow.h>
 #include <crow/middlewares/cors.h>
 #include <cstdlib>
@@ -10,6 +12,8 @@
 #include <mutex>
 #include <iostream>
 #include <nlohmann/json.hpp>
+
+using namespace adastra::utils::json;
 
 namespace softadastra::commerce::product
 {
@@ -22,33 +26,18 @@ namespace softadastra::commerce::product
 
         std::call_once(init_flag, [&]()
                        {
+                        std::vector<Product> loaded = ProductService(path).getAllProducts();
+
             g_productCache = std::make_unique<ProductCache>(
                 path,
-                [path]() -> std::vector<Product> {
-                    ProductService service(path);
-                    return service.getAllProducts();
+                [loaded]() -> std::vector<Product> {
+                    return  loaded;
                 },
                 [](const std::vector<Product>& products) -> nlohmann::json {
-                    nlohmann::json j;
-                    j["data"] = nlohmann::json::array();
-
-                    for (const auto& p : products)
-                    {
-                        j["data"].push_back({
-                            {"id", p.getId()},
-                            {"title", p.getTitle()},
-                            {"image_url", p.getImageUrl()},
-                            {"city_name", p.getCityName()},
-                            {"country_image_url", p.getCountryImageUrl()},
-                            {"currency", p.getCurrency()},
-                            {"formatted_price", p.getFormattedPrice()},
-                            {"converted_price", p.getConvertedPrice()},
-                            {"sizes", p.getSizes()},
-                            {"colors", p.getColors()}
-                        });
-                    }
-
-                    return j;
+                    return serializeVector("product", products);
+                },
+                [](const nlohmann::json& j){
+                    return deserializeVector<Product>(j, "products");
                 }
             );
 
