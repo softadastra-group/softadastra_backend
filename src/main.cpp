@@ -16,8 +16,8 @@ int main()
     int port = adastra::config::env::EnvLoader::getInt("SERVER_PORT", 18080);
     int threads = adastra::config::env::EnvLoader::getInt("SERVER_THREADS", 4);
 
-    std::cout << "🟢 Backend Softadastra lancé sur le port " << port
-              << " avec " << threads << " threads..." << std::endl;
+    std::cout << "🟢 Backend Softadastra sur le port " << port
+              << ", " << threads << " threads..." << std::endl;
     crow::App<crow::CORSHandler> app;
 
     auto &cors = app.get_middleware<crow::CORSHandler>();

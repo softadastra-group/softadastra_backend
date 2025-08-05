@@ -49,6 +49,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Rien de supprimé dans cette version
 
 ## [Unreleased]
+## [0.2.5] - 2025-08-05
+
+### Added
+- 
+
+### Changed
+- 
+
+### Removed
+- 
+
+
 ## [0.2.4] - 2025-08-04
 
 ### Added
