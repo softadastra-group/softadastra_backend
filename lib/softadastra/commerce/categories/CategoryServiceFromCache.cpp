@@ -14,41 +14,61 @@ namespace softadastra::commerce::categories
 
     std::vector<Category> CategoryServiceFromCache::getTopLevelCategories() const
     {
-        std::vector<Category> result;
-        for (const auto &c : data_)
+        if (!isTopLevelCacheBuilt_)
         {
-            if (!c.getParentId().has_value())
+            topLevelCache_.clear();
+            for (const auto &c : data_)
             {
-                result.push_back(c);
+                if (!c.getParentId().has_value())
+                {
+                    topLevelCache_.push_back(c);
+                }
             }
+            isTopLevelCacheBuilt_ = true;
         }
-        return result;
+        return topLevelCache_;
     }
 
     std::vector<Category> CategoryServiceFromCache::getLeafCategories(std::size_t offset, std::size_t limit) const
     {
-        std::unordered_set<std::uint32_t> parentIds;
-        for (const auto &c : data_)
+        if (!isLeafCacheBuilt_)
         {
-            if (c.getParentId().has_value())
+            std::unordered_set<std::uint32_t> parentIds;
+            for (const auto &c : data_)
             {
-                parentIds.insert(c.getParentId().value());
+                if (c.getParentId().has_value())
+                {
+                    parentIds.insert(c.getParentId().value());
+                }
             }
+
+            leafCache_.clear();
+            for (const auto &c : data_)
+            {
+                if (parentIds.count(c.getId()) == 0)
+                {
+                    leafCache_.push_back(c);
+                }
+            }
+
+            isLeafCacheBuilt_ = true;
         }
 
-        std::vector<Category> result;
-        for (const auto &c : data_)
-        {
-            if (parentIds.count(c.getId()) == 0)
-            {
-                result.push_back(c);
-            }
-        }
-
-        if (offset >= result.size())
+        if (offset >= leafCache_.size())
             return {};
 
-        auto end = std::min(result.size(), offset + limit);
-        return std::vector<Category>(result.begin() + offset, result.begin() + end);
+        auto end = std::min(leafCache_.size(), offset + limit);
+        return std::vector<Category>(leafCache_.begin() + offset, leafCache_.begin() + end);
+    }
+
+    void CategoryServiceFromCache::reloadData(const std::vector<Category> &newData)
+    {
+        data_ = newData;
+
+        // Invalider les caches
+        topLevelCache_.clear();
+        leafCache_.clear();
+        isTopLevelCacheBuilt_ = false;
+        isLeafCacheBuilt_ = false;
     }
 }
