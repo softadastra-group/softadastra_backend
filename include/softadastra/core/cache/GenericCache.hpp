@@ -8,6 +8,7 @@
 #include <fstream>
 #include <nlohmann/json.hpp>
 #include <filesystem>
+#include <iostream>
 
 namespace softadastra::core::cache
 {
@@ -48,7 +49,13 @@ namespace softadastra::core::cache
         void reload()
         {
             std::lock_guard<std::mutex> lock(mutex);
-            load(true);
+
+            if (!loadFromFile())
+            {
+                throw std::runtime_error("Échec du rechargement depuis le fichier cache : " + cachePath);
+            }
+
+            std::cout << "[GenericCache] 🔁 Cache rechargé depuis le fichier avec succès.\n";
         }
 
     private:
@@ -66,26 +73,44 @@ namespace softadastra::core::cache
             if (!forceReload && loadFromFile())
                 return;
 
+            // Charger à partir de la source (base de données, ou autre)
             data_ = loadData();
-            cachedJson = serialize(data_).dump();
+
+            if (serialize)
+            {
+                nlohmann::json jsonToSave = serialize(data_);
+                cachedJson = jsonToSave.dump(2);
+                saveToFile(); // on sauve seulement ce qu'on vient de charger manuellement
+            }
+
             isLoaded = true;
-            saveToFile();
         }
 
         bool loadFromFile()
         {
+            std::cerr << "[Cache] 🔎 Chargement depuis : " << cachePath << "\n";
+
             if (!std::filesystem::exists(cachePath))
+            {
+                std::cerr << "[Cache] ❌ Fichier non trouvé\n";
                 return false;
+            }
 
             std::ifstream in(cachePath);
             if (!in.is_open())
+            {
+                std::cerr << "[Cache] ❌ Impossible d'ouvrir le fichier\n";
                 return false;
+            }
 
             std::string fileContent((std::istreambuf_iterator<char>(in)),
                                     std::istreambuf_iterator<char>());
 
             if (fileContent.empty())
+            {
+                std::cerr << "[Cache] ⚠️ Fichier vide\n";
                 return false;
+            }
 
             cachedJson = fileContent;
 
@@ -98,25 +123,34 @@ namespace softadastra::core::cache
                 }
                 else
                 {
+                    std::cerr << "[Cache] ❌ Pas de fonction de désérialisation définie\n";
                     return false;
                 }
 
                 isLoaded = true;
+                std::cerr << "[Cache] ✅ Cache rechargé depuis le fichier\n";
                 return true;
             }
-            catch (...)
+            catch (const std::exception &e)
             {
+                std::cerr << "[Cache] ❌ Erreur de parsing JSON : " << e.what() << "\n";
                 return false;
             }
         }
 
         void saveToFile()
         {
-            std::ofstream out(cachePath, std::ios::out | std::ios::trunc);
-            if (out.is_open())
+            if (serialize)
             {
-                out.write(cachedJson.data(), cachedJson.size());
-                out.close();
+                nlohmann::json jsonToSave = serialize(data_);
+                cachedJson = jsonToSave.dump(2); // joli formatage pour debug
+
+                std::ofstream out(cachePath, std::ios::out | std::ios::trunc);
+                if (out.is_open())
+                {
+                    out.write(cachedJson.data(), cachedJson.size());
+                    out.close();
+                }
             }
         }
     };

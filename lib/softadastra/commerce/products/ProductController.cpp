@@ -1,8 +1,11 @@
 #include <softadastra/commerce/products/ProductController.hpp>
 #include <softadastra/commerce/products/ProductCache.hpp>
 #include <softadastra/commerce/products/ProductService.hpp>
-#include <adastra/config/env/EnvLoader.hpp>
+#include <softadastra/commerce/products/ProductRecommender.hpp>
+#include <softadastra/commerce/products/ProductValidator.hpp>
+#include <softadastra/commerce/products/ProductFactory.hpp>
 
+#include <adastra/config/env/EnvLoader.hpp>
 #include <adastra/utils/json/JsonUtils.hpp>
 
 #include <crow.h>
@@ -15,10 +18,12 @@
 
 using namespace adastra::utils::json;
 
-namespace softadastra::commerce::product
+namespace softadastra::commerce::products
 {
     static std::unique_ptr<ProductCache> g_productCache;
     static std::once_flag init_flag;
+    constexpr int DEFAULT_LIMIT = 10;
+    constexpr int DEFAULT_OFFSET = 0;
 
     void ProductController(crow::App<crow::CORSHandler> &app)
     {
@@ -26,23 +31,43 @@ namespace softadastra::commerce::product
 
         std::call_once(init_flag, [&]()
                        {
-                        std::vector<Product> loaded = ProductService(path).getAllProducts();
+    auto deserializer = [](const nlohmann::json& json) -> std::vector<Product> {
+        if (!json.contains("data") || !json["data"].is_array()) {
+            throw std::runtime_error("Clé 'data' manquante ou invalide (attendu : tableau JSON)");
+        }
 
-            g_productCache = std::make_unique<ProductCache>(
-                path,
-                [loaded]() -> std::vector<Product> {
-                    return  loaded;
-                },
-                [](const std::vector<Product>& products) -> nlohmann::json {
-                    return serializeVector("product", products);
-                },
-                [](const nlohmann::json& j){
-                    return deserializeVector<Product>(j, "products");
-                }
-            );
+        std::vector<Product> products;
+        for (const auto& item : json["data"]) {
+            try {
+                products.push_back(ProductFactory::fromJsonOrThrow(item));
+            } catch (const std::exception& e) {
+                std::cerr << "⚠️ Produit ignoré : " << e.what() << std::endl;
+            }
+        }
 
-            g_productCache->getJson(); // Warm up
-            std::cout << "[ProductController] Cache produit initialisé.\n"; });
+        return products;
+    };
+
+    auto serializer = [](const std::vector<Product>& products) -> nlohmann::json {
+        nlohmann::json j;
+        j["data"] = nlohmann::json::array();
+        for (const auto& p : products) {
+            j["data"].push_back(p.toJson());
+        }
+        return j;
+    };
+
+    g_productCache = std::make_unique<ProductCache>(
+        path,
+        []() -> std::vector<Product> {
+            return {}; // 👈 ne jamais déclencher d'écriture par défaut
+        },
+        serializer,
+        deserializer
+    );
+
+    g_productCache->reload(); // ✅ lit uniquement depuis le fichier JSON
+    std::cout << "[ProductController] ✅ Cache produit initialisé depuis le fichier.\n"; });
 
         CROW_ROUTE(app, "/api/products")
         ([]
@@ -75,20 +100,142 @@ namespace softadastra::commerce::product
                 return crow::response(500, std::string("Erreur : ") + e.what());
             } });
 
-        CROW_ROUTE(app, "/api/products/reload").methods("POST"_method)([]
-                                                                       {
-            if (!g_productCache)
-            {
-                return crow::response(500, "Cache non initialisé");
+        CROW_ROUTE(app, "/api/products/recommend")
+            .methods("POST"_method)([](const crow::request &req)
+                                    {
+            try {
+                nlohmann::json requestJson = nlohmann::json::parse(req.body);
+
+                std::unique_ptr<Product> referencePtr = ProductFactory::createFromJson(requestJson);
+                if (!referencePtr) {
+                    return crow::response(400, R"({"status":"error","message":"Invalid product JSON."})");
+                }
+
+                const Product &reference = *referencePtr;
+                auto &cache = *g_productCache;
+                std::vector<Product> allProducts = cache.getAll();
+
+                std::vector<Product> recommendations = ProductRecommender::recommendSimilar(reference, allProducts, 10);
+
+                nlohmann::json responseJson = {
+                    {"status", "success"},
+                    {"recommendations", serializeVector("products", recommendations)},
+                    {"total_recommendations", recommendations.size()},
+                    {"limit", 10},
+                    {"offset", 0}
+                };
+
+                crow::response res(responseJson.dump(2));
+                res.set_header("Content-Type", "application/json");
+                return res;
+
+            } catch (const std::exception &e) {
+                return crow::response(500, R"({"status":"error","message":"Exception in POST /recommend: )" + std::string(e.what()) + R"("})");
+            } });
+
+        CROW_ROUTE(app, "/api/products/recommend/<int>")
+            .methods("GET"_method)([](const crow::request &req, int id)
+                                   {
+            try {
+                auto &cache = *g_productCache;
+                std::vector<Product> allProducts = cache.getAll();
+                std::cout << "🔎 Recherche produit ID " << id << " dans cache de taille " << allProducts.size() << std::endl;
+                for (const auto& p : allProducts) {
+                    std::cout << "→ ID dans cache: " << p.getId() << std::endl;
+                }
+
+                auto it = std::find_if(allProducts.begin(), allProducts.end(), [id](const Product &p) {
+                    return p.getId() == static_cast<std::uint32_t>(id);
+                });
+
+                if (it == allProducts.end()) {
+                    return crow::response(404, crow::json::wvalue({
+                        {"status", "error"},
+                        {"message", "Product not found for recommendation"},
+                        {"product_id", id}
+                    }));
+                }
+
+                const Product &referenceProduct = *it;
+
+                constexpr int DEFAULT_LIMIT = 10;
+                constexpr int DEFAULT_OFFSET = 0;
+
+                int limit = req.url_params.get("limit") ? std::atoi(req.url_params.get("limit")) : DEFAULT_LIMIT;
+                int offset = req.url_params.get("offset") ? std::atoi(req.url_params.get("offset")) : DEFAULT_OFFSET;
+
+                std::vector<Product> recommendations = ProductRecommender::recommendSimilar(referenceProduct, allProducts, offset + limit);
+
+                int total = static_cast<int>(recommendations.size());
+                int start = std::clamp(offset, 0, total);
+                int end = std::clamp(offset + limit, 0, total);
+
+                std::vector<Product> paginated(recommendations.begin() + start, recommendations.begin() + end);
+
+                nlohmann::json responseJson = {
+                    {"status", "success"},
+                    {"reference_product_id", id},
+                    {"limit", limit},
+                    {"offset", offset},
+                    {"total_recommendations", total},
+                    {"recommendations", serializeVector("products", paginated)}
+                };
+
+                crow::response res(responseJson.dump(2));
+                res.set_header("Content-Type", "application/json");
+                return res;
+
+            } catch (const std::exception &e) {
+                return crow::response(500, R"({"status":"error","message":"Exception in GET /recommend: )" + std::string(e.what()) + R"("})");
+            } });
+
+        CROW_ROUTE(app, "/api/products/recommend/reload")
+            .methods("GET"_method)([]
+                                   {
+        try {
+            const char* path = std::getenv("PRODUCT_JSON_PATH");
+            if (!path) {
+                throw std::runtime_error("PRODUCT_JSON_PATH non défini !");
             }
 
-            try {
-                g_productCache->reload();
-                std::cout << "[ProductController] Cache produit rechargé.\n";
-                return crow::response(200, "Cache rechargé avec succès");
-            } catch (const std::exception& e) {
-                return crow::response(500, std::string("Erreur lors du rechargement : ") + e.what());
-            } });
+            // 🧠 Construction du cache sans appel immédiat à loadData
+            g_productCache = std::make_unique<ProductCache>(
+                path,
+                []() -> std::vector<Product> { return {}; }, // ⚠️ on ignore le loader ici
+                [](const std::vector<Product>& products) {
+                    nlohmann::json j;
+                    j["data"] = nlohmann::json::array();
+                    for (const auto& p : products)
+                        j["data"].push_back(p.toJson());
+                    return j;
+                },
+                [](const nlohmann::json& json) {
+                    std::vector<Product> products;
+                    if (!json.contains("data") || !json["data"].is_array()) {
+                        throw std::runtime_error("Clé 'data' manquante ou invalide (attendu : tableau JSON)");
+                    }
+
+                    for (const auto& item : json["data"]) {
+                        try {
+                            products.push_back(ProductFactory::fromJsonOrThrow(item));
+                        } catch (const std::exception& e) {
+                            std::cerr << "⚠️ Produit ignoré : " << e.what() << std::endl;
+                        }
+                    }
+
+                    return products;
+                }
+            );
+
+            // ✅ Recharge depuis le fichier uniquement
+            g_productCache->reload();
+
+            std::cout << "[ProductController] Cache produit rechargé depuis le fichier JSON.\n";
+            return crow::response(R"({"status":"success","message":"Cache produit rechargé avec succès"})");
+
+        } catch (const std::exception& e) {
+            return crow::response(500, R"({"status":"error","message":"Erreur : )" + std::string(e.what()) + R"("})");
+        } });
 
         CROW_ROUTE(app, "/api/products/status")
         ([]

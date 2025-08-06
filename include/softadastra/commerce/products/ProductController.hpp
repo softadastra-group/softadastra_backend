@@ -4,7 +4,7 @@
 #include <crow.h>
 #include <crow/middlewares/cors.h>
 
-namespace softadastra::commerce::product
+namespace softadastra::commerce::products
 {
     void ProductController(crow::App<crow::CORSHandler> &app);
 }

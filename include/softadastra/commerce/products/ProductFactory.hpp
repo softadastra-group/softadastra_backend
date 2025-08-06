@@ -1,16 +1,18 @@
 #ifndef PRODUCT_FACTORY_HPP
 #define PRODUCT_FACTORY_HPP
 
-#include <memory>
-#include <nlohmann/json.hpp>
 #include <softadastra/commerce/products/Product.hpp>
 
-namespace softadastra::commerce::product
+#include <memory>
+#include <nlohmann/json.hpp>
+
+namespace softadastra::commerce::products
 {
     class ProductFactory
     {
     public:
         static std::unique_ptr<Product> createFromJson(const nlohmann::json &data);
+        static Product fromJsonOrThrow(const nlohmann::json &data);
     };
 }
 

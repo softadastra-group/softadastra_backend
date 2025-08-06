@@ -29,7 +29,7 @@ int main()
         .methods("GET"_method, "POST"_method, "PUT"_method, "DELETE"_method, "OPTIONS"_method)
         .max_age(86400);
 
-    softadastra::commerce::product::ProductController(app);
+    softadastra::commerce::products::ProductController(app);
     softadastra::commerce::categories::CategoryController(app);
     softadastra::commerce::colors::ColorController(app);
     softadastra::commerce::sizes::SizeController(app);

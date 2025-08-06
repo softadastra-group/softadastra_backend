@@ -1,7 +1,7 @@
 #include <softadastra/commerce/products/Product.hpp>
 #include <softadastra/commerce/products/ProductFactory.hpp>
 
-namespace softadastra::commerce::product
+namespace softadastra::commerce::products
 {
     Product::Product(Product &&other) noexcept
         : id(other.id),
@@ -12,8 +12,20 @@ namespace softadastra::commerce::product
           currency(std::move(other.currency)),
           formatted_price(std::move(other.formatted_price)),
           converted_price(std::move(other.converted_price)),
+          converted_price_value(other.converted_price_value),
+          price_with_shipping_value(other.price_with_shipping_value),
+          original_price(std::move(other.original_price)),
+          brand_id(std::move(other.brand_id)),
+          average_rating(other.average_rating),
           sizes(std::move(other.sizes)),
-          colors(std::move(other.colors))
+          colors(std::move(other.colors)),
+          condition_name(std::move(other.condition_name)),
+          brand_name(std::move(other.brand_name)),
+          package_format_name(std::move(other.package_format_name)),
+          category_id(other.category_id),
+          views(other.views),
+          review_count(other.review_count),
+          boost(other.boost)
     {
     }
 
@@ -29,19 +41,26 @@ namespace softadastra::commerce::product
             currency = std::move(other.currency);
             formatted_price = std::move(other.formatted_price);
             converted_price = std::move(other.converted_price);
+            converted_price_value = other.converted_price_value;
+            price_with_shipping_value = other.price_with_shipping_value;
+            original_price = std::move(other.original_price);
             sizes = std::move(other.sizes);
             colors = std::move(other.colors);
+            condition_name = std::move(other.condition_name);
+            brand_name = std::move(other.brand_name);
+            package_format_name = std::move(other.package_format_name);
+            category_id = other.category_id;
+            views = other.views;
+            average_rating = other.average_rating;
+            review_count = other.review_count;
+            boost = other.boost;
         }
         return *this;
     }
 
     Product Product::fromJson(const nlohmann::json &j)
     {
-        auto ptr = ProductFactory::createFromJson(j);
-        if (!ptr)
-        {
-            throw std::runtime_error("Invalid product JSON structure");
-        }
-        return *ptr;
+        return ProductFactory::fromJsonOrThrow(j);
     }
+
 }
