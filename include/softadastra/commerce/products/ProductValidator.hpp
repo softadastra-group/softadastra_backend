@@ -4,12 +4,13 @@
 #include <nlohmann/json.hpp>
 #include <string>
 
-namespace softadastra::commerce::product
+namespace softadastra::commerce::products
 {
     class ProductValidator
     {
     public:
-        static void validate(const nlohmann::json &item, const std::string &source = "unknown");
+        static void validate(const nlohmann::json &item, const std::string &source);
+        static bool isValid(const nlohmann::json &item);
     };
 }
 

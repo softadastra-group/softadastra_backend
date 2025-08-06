@@ -1,6 +1,6 @@
 #include <softadastra/commerce/products/ProductService.hpp>
 
-namespace softadastra::commerce::product
+namespace softadastra::commerce::products
 {
     ProductService::ProductService(const std::string &path)
         : repo(path, "data") {}

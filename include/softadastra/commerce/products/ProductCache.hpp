@@ -4,7 +4,7 @@
 #include <softadastra/core/cache/GenericCache.hpp>
 #include <softadastra/commerce/products/Product.hpp>
 
-namespace softadastra::commerce::product
+namespace softadastra::commerce::products
 {
     using ProductCache = softadastra::core::cache::GenericCache<Product>;
 }

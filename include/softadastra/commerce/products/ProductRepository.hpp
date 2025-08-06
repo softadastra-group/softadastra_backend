@@ -4,7 +4,7 @@
 #include <adastra/core/repository/JsonRepository.hpp>
 #include <softadastra/commerce/products/Product.hpp>
 
-namespace softadastra::commerce::product
+namespace softadastra::commerce::products
 {
     using ProductRepository = adastra::core::repository::JsonRepository<Product>;
 }

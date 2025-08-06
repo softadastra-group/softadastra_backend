@@ -6,7 +6,7 @@
 #include <vector>
 #include <string>
 
-namespace softadastra::commerce::product
+namespace softadastra::commerce::products
 {
     class ProductService
     {
