@@ -41,7 +41,7 @@ namespace softadastra::commerce::products
             try {
                 products.push_back(ProductFactory::fromJsonOrThrow(item));
             } catch (const std::exception& e) {
-                std::cerr << "⚠️ Produit ignoré : " << e.what() << std::endl;
+                std::cerr << "Produit ignoré : " << e.what() << std::endl;
             }
         }
 
@@ -60,14 +60,14 @@ namespace softadastra::commerce::products
     g_productCache = std::make_unique<ProductCache>(
         path,
         []() -> std::vector<Product> {
-            return {}; // 👈 ne jamais déclencher d'écriture par défaut
+            return {}; 
         },
         serializer,
         deserializer
     );
 
-    g_productCache->reload(); // ✅ lit uniquement depuis le fichier JSON
-    std::cout << "[ProductController] ✅ Cache produit initialisé depuis le fichier.\n"; });
+    g_productCache->reload(); 
+    std::cout << "[ProductController] Cache produit initialisé depuis le fichier.\n"; });
 
         CROW_ROUTE(app, "/api/products")
         ([]
@@ -198,10 +198,9 @@ namespace softadastra::commerce::products
                 throw std::runtime_error("PRODUCT_JSON_PATH non défini !");
             }
 
-            // 🧠 Construction du cache sans appel immédiat à loadData
             g_productCache = std::make_unique<ProductCache>(
                 path,
-                []() -> std::vector<Product> { return {}; }, // ⚠️ on ignore le loader ici
+                []() -> std::vector<Product> { return {}; },
                 [](const std::vector<Product>& products) {
                     nlohmann::json j;
                     j["data"] = nlohmann::json::array();
@@ -227,7 +226,6 @@ namespace softadastra::commerce::products
                 }
             );
 
-            // ✅ Recharge depuis le fichier uniquement
             g_productCache->reload();
 
             std::cout << "[ProductController] Cache produit rechargé depuis le fichier JSON.\n";
