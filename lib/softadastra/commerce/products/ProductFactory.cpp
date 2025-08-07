@@ -14,19 +14,38 @@ namespace softadastra::commerce::products
         return {};
     }
 
+    static std::vector<std::pair<std::string, std::string>> parseCustomFieldsFlexible(const nlohmann::json &customFields)
+    {
+        std::vector<std::pair<std::string, std::string>> result;
+
+        for (const auto &item : customFields)
+        {
+            if (item.is_array() && item.size() == 2 && item[0].is_string() && item[1].is_string())
+            {
+                result.emplace_back(item[0], item[1]); // format API
+            }
+            else if (item.is_object() && item.contains("name") && item.contains("value") &&
+                     item["name"].is_string() && item["value"].is_string())
+            {
+                result.emplace_back(item["name"], item["value"]); // format interne
+            }
+        }
+
+        return result;
+    }
+
     std::unique_ptr<Product> ProductFactory::createFromJson(const nlohmann::json &data)
     {
         try
         {
-            std::cerr << "Tentative de chargement produit ID : " << data.value("id", -1) << std::endl;
+            std::cout << "📥 JSON reçu dans ProductFactory::createFromJson:\n"
+                      << data.dump(2) << std::endl;
+
             ProductValidator::validate(data, "createFromJson");
 
             ProductBuilder builder;
-            builder.setId(data.value("id", 0))
-                .setTitle(data.value("title", ""))
-                .setImageUrl(data.contains("image_url") && data["image_url"].is_string()
-                                 ? data["image_url"].get<std::string>()
-                                 : "")
+            builder.setTitle(data.value("title", ""))
+                .setImageUrl(data.value("image_url", ""))
                 .setCityName(data.value("city_name", ""))
                 .setCountryImageUrl(data.value("country_image_url", ""))
                 .setCurrency(data.value("currency", ""))
@@ -41,32 +60,84 @@ namespace softadastra::commerce::products
                 .setCategoryId(data.value("category_id", 0))
                 .setViews(data.value("views", 0))
                 .setReviewCount(data.value("review_count", 0))
-                .setBoost(data.contains("boost")
-                              ? static_cast<bool>(data["boost"].get<int>())
-                              : false);
+                .setBoost(data.value("boost", false))
+                .setConvertedPriceValue(data.value("converted_price_value", 0.0f))
+                .setOriginalPrice(data.value("original_price", ""))
+                .setAverageRating(data.value("average_rating", 0.0f));
 
-            if (data.contains("converted_price_value") && data["converted_price_value"].is_number())
-                builder.setConvertedPriceValue(data["converted_price_value"].get<float>());
-            else
-                builder.setConvertedPriceValue(0.0f);
+            if (data.contains("similar_products") && data["similar_products"].is_array())
+            {
+                builder.setSimilarProducts(data["similar_products"].get<std::vector<uint32_t>>());
+            }
 
-            if (data.contains("original_price") && data["original_price"].is_string())
-                builder.setOriginalPrice(data["original_price"].get<std::string>());
-            else
-                builder.setOriginalPrice("");
+            if (data.contains("custom_fields") && data["custom_fields"].is_array())
+            {
+                builder.setCustomFields(parseCustomFieldsFlexible(data["custom_fields"]));
+            }
 
-            if (data.contains("average_rating") && data["average_rating"].is_number())
-                builder.setAverageRating(data["average_rating"].get<float>());
-            else
-                builder.setAverageRating(0.0f);
+            if (data.contains("images") && data["images"].is_array())
+            {
+                builder.setImages(data["images"].get<std::vector<std::string>>());
+            }
 
-            Product product = builder.build();
-            return std::make_unique<Product>(std::move(product));
+            return std::make_unique<Product>(builder.build());
         }
         catch (const std::exception &ex)
         {
-            std::cerr << "❌ Erreur dans ProductFactory::createFromJson: " << ex.what() << std::endl;
-            // std::cerr << "🔎 JSON en erreur : " << data.dump(2) << std::endl;
+            std::cerr << "Erreur dans ProductFactory::createFromJson: " << ex.what() << std::endl;
+            std::cerr << "🔎 JSON en erreur : " << data.dump(2) << std::endl;
+            return nullptr;
+        }
+    }
+
+    std::unique_ptr<Product> ProductFactory::createFromInternalJson(const nlohmann::json &data)
+    {
+        try
+        {
+            ProductBuilder builder;
+            builder.setId(data.value("id", 0))
+                .setTitle(data.value("title", ""))
+                .setImageUrl(data.value("image_url", ""))
+                .setCityName(data.value("city_name", ""))
+                .setCountryImageUrl(data.value("country_image_url", ""))
+                .setCurrency(data.value("currency", ""))
+                .setFormattedPrice(data.value("formatted_price", ""))
+                .setConvertedPrice(data.value("converted_price", ""))
+                .setPriceWithShipping(data.value("price_with_shipping_value", 0.0f))
+                .setSizes(safeArray(data, "sizes"))
+                .setColors(safeArray(data, "colors"))
+                .setConditionName(data.value("condition_name", ""))
+                .setBrandName(data.value("brand_name", ""))
+                .setPackageFormatName(data.value("package_format_name", ""))
+                .setCategoryId(data.value("category_id", 0))
+                .setViews(data.value("views", 0))
+                .setReviewCount(data.value("review_count", 0))
+                .setBoost(data.value("boost", false))
+                .setConvertedPriceValue(data.value("converted_price_value", 0.0f))
+                .setOriginalPrice(data.value("original_price", ""))
+                .setAverageRating(data.value("average_rating", 0.0f));
+
+            if (data.contains("similar_products") && data["similar_products"].is_array())
+            {
+                builder.setSimilarProducts(data["similar_products"].get<std::vector<uint32_t>>());
+            }
+
+            if (data.contains("custom_fields") && data["custom_fields"].is_array())
+            {
+                builder.setCustomFields(parseCustomFieldsFlexible(data["custom_fields"]));
+            }
+
+            if (data.contains("images") && data["images"].is_array())
+            {
+                builder.setImages(data["images"].get<std::vector<std::string>>());
+            }
+
+            return std::make_unique<Product>(builder.build());
+        }
+        catch (const std::exception &ex)
+        {
+            std::cerr << "Erreur dans ProductFactory::createFromInternalJson: " << ex.what() << std::endl;
+            std::cerr << "🔎 JSON en erreur : " << data.dump(2) << std::endl;
             return nullptr;
         }
     }
@@ -78,5 +149,4 @@ namespace softadastra::commerce::products
             throw std::runtime_error("ProductFactory::fromJsonOrThrow() → JSON invalide");
         return *ptr;
     }
-
 }

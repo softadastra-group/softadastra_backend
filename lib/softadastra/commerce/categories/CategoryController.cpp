@@ -25,24 +25,27 @@ namespace softadastra::commerce::categories
 
         std::call_once(init_flag, [&]()
                        {
-            std::vector<Category> loaded = CategoryService(jsonPathAll).getAllCategories();
-            std::cout << "Catégories chargées à l'initialisation : " << loaded.size() << "\n";
+                           std::vector<Category> loaded = CategoryService(jsonPathAll).getAllCategories();
+                           //    std::cout << "Catégories chargées à l'initialisation : " << loaded.size() << "\n";
 
-            g_categoryCache = std::make_unique<CategoryCache>(
-                jsonPathAll,
-                [loaded]() -> std::vector<Category> {
-                    return loaded;
-                },
-                [](const std::vector<Category>& categories) -> nlohmann::json {
-                   return serializeVector("categories", categories);
-                },
-                [](const nlohmann::json& j){
-                    return deserializeVector<Category>(j, "categories");
-                }
-            );
+                           g_categoryCache = std::make_unique<CategoryCache>(
+                               jsonPathAll,
+                               [loaded]() -> std::vector<Category>
+                               {
+                                   return loaded;
+                               },
+                               [](const std::vector<Category> &categories) -> nlohmann::json
+                               {
+                                   return serializeVector("categories", categories);
+                               },
+                               [](const nlohmann::json &j)
+                               {
+                                   return deserializeVector<Category>(j, "categories");
+                               });
 
-            g_categoryCache->getJson(); // warm-up
-            std::cout << "[CategoryController] Cache initialisé à partir de all_categories.json\n"; });
+                           g_categoryCache->getJson(); // warm-up
+                           // std::cout << "[CategoryController] Cache initialisé à partir de all_categories.json\n";
+                       });
 
         CROW_ROUTE(app, "/api/categories/all")
         ([]
@@ -66,7 +69,7 @@ namespace softadastra::commerce::categories
                     return crow::response(500, "Cache non initialisé");
 
                 g_categoryCache->reload();
-                std::cout << "[CategoryController] Cache rechargé.\n";
+                // std::cout << "[CategoryController] Cache rechargé.\n";
                 return crow::response(200, "Cache rechargé avec succès");
             } catch (const std::exception& e) {
                 return crow::response(500, std::string("Erreur lors du rechargement : ") + e.what());

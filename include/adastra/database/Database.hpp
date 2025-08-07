@@ -72,11 +72,19 @@ namespace adastra::database
         template <typename T>
         void setParameters(std::unique_ptr<sql::PreparedStatement> &pstmt, int index, T &&value);
 
-        // Fonction de setParameter pour les types spécifiques (si nécessaire)
         void setParameter(std::unique_ptr<sql::PreparedStatement> &pstmt, int index, int value);
         void setParameter(std::unique_ptr<sql::PreparedStatement> &pstmt, int index, double value);
         void setParameter(std::unique_ptr<sql::PreparedStatement> &pstmt, int index, const std::string &value);
         void setParameter(std::unique_ptr<sql::PreparedStatement> &pstmt, int index, const char *value);
+        void setParameter(std::unique_ptr<sql::PreparedStatement> &pstmt, int index, unsigned int value);
+        void setParameter(std::unique_ptr<sql::PreparedStatement> &pstmt, int index, bool value);
+        void setParameter(std::unique_ptr<sql::PreparedStatement> &pstmt, int index, float value);
+        void setParameter(std::unique_ptr<sql::PreparedStatement> &pstmt, int index, long long value);
+        void setParameter(std::unique_ptr<sql::PreparedStatement> &pstmt, int index, std::int64_t value);
+
+        void executeUpdate(const std::string &query, const std::vector<std::any> &params = {});
+
+        unsigned int lastInsertId();
 
         // Méthodes pour la gestion des transactions
         void beginTransaction()
@@ -115,6 +123,11 @@ namespace adastra::database
             {
                 throw DatabaseException("La connexion à la base de données n'est pas établie.");
             }
+        }
+
+        static Database &getRef(const std::string &host, const std::string &user, const std::string &password, const std::string &database)
+        {
+            return *getInstance(host, user, password, database);
         }
     };
 

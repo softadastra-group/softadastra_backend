@@ -14,4 +14,5 @@ namespace softadastra::commerce::products
     {
         repo.reload();
     }
+
 }

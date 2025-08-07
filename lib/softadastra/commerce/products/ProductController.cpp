@@ -4,9 +4,11 @@
 #include <softadastra/commerce/products/ProductRecommender.hpp>
 #include <softadastra/commerce/products/ProductValidator.hpp>
 #include <softadastra/commerce/products/ProductFactory.hpp>
+#include <softadastra/commerce/products/ProductServiceFromSQL.hpp>
 
 #include <adastra/config/env/EnvLoader.hpp>
 #include <adastra/utils/json/JsonUtils.hpp>
+#include <adastra/database/Database.hpp>
 
 #include <crow.h>
 #include <crow/middlewares/cors.h>
@@ -31,59 +33,89 @@ namespace softadastra::commerce::products
 
         std::call_once(init_flag, [&]()
                        {
-    auto deserializer = [](const nlohmann::json& json) -> std::vector<Product> {
-        if (!json.contains("data") || !json["data"].is_array()) {
-            throw std::runtime_error("Clé 'data' manquante ou invalide (attendu : tableau JSON)");
-        }
+                           auto deserializer = [](const nlohmann::json &json) -> std::vector<Product>
+                           {
+                               if (!json.contains("data") || !json["data"].is_array())
+                               {
+                                   throw std::runtime_error("Clé 'data' manquante ou invalide (attendu : tableau JSON)");
+                               }
 
-        std::vector<Product> products;
-        for (const auto& item : json["data"]) {
-            try {
-                products.push_back(ProductFactory::fromJsonOrThrow(item));
-            } catch (const std::exception& e) {
-                std::cerr << "Produit ignoré : " << e.what() << std::endl;
-            }
-        }
+                               std::vector<Product> products;
+                               for (const auto &item : json["data"])
+                               {
+                                   try
+                                   {
+                                       products.push_back(ProductFactory::fromJsonOrThrow(item));
+                                   }
+                                   catch (const std::exception &e)
+                                   {
+                                       std::cerr << "Produit ignoré : " << e.what() << std::endl;
+                                   }
+                               }
 
-        return products;
-    };
+                               return products;
+                           };
 
-    auto serializer = [](const std::vector<Product>& products) -> nlohmann::json {
-        nlohmann::json j;
-        j["data"] = nlohmann::json::array();
-        for (const auto& p : products) {
-            j["data"].push_back(p.toJson());
-        }
-        return j;
-    };
+                           auto serializer = [](const std::vector<Product> &products) -> nlohmann::json
+                           {
+                               nlohmann::json j;
+                               j["data"] = nlohmann::json::array();
+                               for (const auto &p : products)
+                               {
+                                   j["data"].push_back(p.toJson());
+                               }
+                               return j;
+                           };
 
-    g_productCache = std::make_unique<ProductCache>(
-        path,
-        []() -> std::vector<Product> {
-            return {}; 
-        },
-        serializer,
-        deserializer
-    );
+                           g_productCache = std::make_unique<ProductCache>(
+                               path,
+                               []() -> std::vector<Product>
+                               {
+                                   return {};
+                               },
+                               serializer,
+                               deserializer);
 
-    g_productCache->reload(); 
-    std::cout << "[ProductController] Cache produit initialisé depuis le fichier.\n"; });
+                           g_productCache->reload();
+                           // std::cout << "[ProductController] Cache produit initialisé depuis le fichier.\n";
+                       });
 
-        CROW_ROUTE(app, "/api/products")
-        ([]
-         {
-            nlohmann::json doc = {
-                {"endpoints", {
-                    {{"method", "GET"}, {"path", "/api/products"}, {"description", "Mini doc des routes produits"}},
-                    {{"method", "GET"}, {"path", "/api/products/all"}, {"description", "Tous les produits depuis le cache"}},
-                    {{"method", "POST"}, {"path", "/api/products/reload"}, {"description", "Recharge les produits"}},
-                    {{"method", "GET"}, {"path", "/api/products/status"}, {"description", "Statut du cache"}}
-                }}
-            };
+        CROW_ROUTE(app, "/api/products/create").methods("POST"_method)([](const crow::request &req)
+                                                                       {
+        try
+        {
+            auto json = nlohmann::json::parse(req.body);
+            Product product = ProductFactory::fromJsonOrThrow(json);
 
-            crow::response res(doc.dump(2));
+            // 🛢 Connexion à la base via getInstance
+            auto &db = adastra::database::Database::getRef(
+                adastra::config::env::EnvLoader::require("DB_HOST"),
+                adastra::config::env::EnvLoader::require("DB_USER"),
+                adastra::config::env::EnvLoader::require("DB_PASS"),
+                adastra::config::env::EnvLoader::require("DB_NAME"));
+
+            // 🔐 Encapsuler la référence dans un shared_ptr sans la détruire
+            auto dbPtr = std::shared_ptr<adastra::database::Database>(&db, [](adastra::database::Database *) {
+                // 🔒 Ne rien faire pour éviter la destruction de l'instance globale
+            });
+
+            ProductServiceFromSQL service(dbPtr);
+            service.create(product);
+
+            crow::response res(nlohmann::json{
+                                   {"status", "success"},
+                                   {"message", "Produit créé avec succès"}}.dump(2));
+
             res.set_header("Content-Type", "application/json");
-            return res; });
+            return res;
+        }
+        catch (const std::exception &e)
+        {
+            return crow::response(500, nlohmann::json{
+                                             {"status", "error"},
+                                             {"message", std::string("Exception: ") + e.what()}}
+                                             .dump(2));
+        } });
 
         CROW_ROUTE(app, "/api/products/all")
         ([]
@@ -106,7 +138,7 @@ namespace softadastra::commerce::products
             try {
                 nlohmann::json requestJson = nlohmann::json::parse(req.body);
 
-                std::unique_ptr<Product> referencePtr = ProductFactory::createFromJson(requestJson);
+                std::unique_ptr<Product> referencePtr = ProductFactory::createFromInternalJson(requestJson);
                 if (!referencePtr) {
                     return crow::response(400, R"({"status":"error","message":"Invalid product JSON."})");
                 }
@@ -139,10 +171,10 @@ namespace softadastra::commerce::products
             try {
                 auto &cache = *g_productCache;
                 std::vector<Product> allProducts = cache.getAll();
-                std::cout << "🔎 Recherche produit ID " << id << " dans cache de taille " << allProducts.size() << std::endl;
-                for (const auto& p : allProducts) {
-                    std::cout << "→ ID dans cache: " << p.getId() << std::endl;
-                }
+                // std::cout << "🔎 Recherche produit ID " << id << " dans cache de taille " << allProducts.size() << std::endl;
+                // for (const auto& p : allProducts) {
+                //     std::cout << "→ ID dans cache: " << p.getId() << std::endl;
+                // }
 
                 auto it = std::find_if(allProducts.begin(), allProducts.end(), [id](const Product &p) {
                     return p.getId() == static_cast<std::uint32_t>(id);
@@ -228,12 +260,28 @@ namespace softadastra::commerce::products
 
             g_productCache->reload();
 
-            std::cout << "[ProductController] Cache produit rechargé depuis le fichier JSON.\n";
+            // std::cout << "[ProductController] Cache produit rechargé depuis le fichier JSON.\n";
             return crow::response(R"({"status":"success","message":"Cache produit rechargé avec succès"})");
 
         } catch (const std::exception& e) {
             return crow::response(500, R"({"status":"error","message":"Erreur : )" + std::string(e.what()) + R"("})");
         } });
+
+        CROW_ROUTE(app, "/api/products")
+        ([]
+         {
+            nlohmann::json doc = {
+                {"endpoints", {
+                    {{"method", "GET"}, {"path", "/api/products"}, {"description", "Mini doc des routes produits"}},
+                    {{"method", "GET"}, {"path", "/api/products/all"}, {"description", "Tous les produits depuis le cache"}},
+                    {{"method", "POST"}, {"path", "/api/products/reload"}, {"description", "Recharge les produits"}},
+                    {{"method", "GET"}, {"path", "/api/products/status"}, {"description", "Statut du cache"}}
+                }}
+            };
+
+            crow::response res(doc.dump(2));
+            res.set_header("Content-Type", "application/json");
+            return res; });
 
         CROW_ROUTE(app, "/api/products/status")
         ([]

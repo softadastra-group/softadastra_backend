@@ -20,7 +20,7 @@ namespace softadastra::commerce::colors
         std::call_once(init_flag, [&]()
                        {
             std::vector<Color> loaded = ColorService(jsonPath).getAllColors();
-            std::cout << "Couleurs chargées : " << loaded.size() << "\n";
+            // std::cout << "Couleurs chargées : " << loaded.size() << "\n";
 
             g_colorCache = std::make_unique<ColorCache>(
                 jsonPath,

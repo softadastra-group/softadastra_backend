@@ -120,6 +120,25 @@ namespace softadastra::commerce::products
         product.setCountryImageUrl(countryImage);
         return *this;
     }
+
+    ProductBuilder &ProductBuilder::setSimilarProducts(const std::vector<uint32_t> &similarProducts)
+    {
+        product.setSimilarProducts(similarProducts);
+        return *this;
+    }
+
+    ProductBuilder &ProductBuilder::setCustomFields(const std::vector<std::pair<std::string, std::string>> &fields)
+    {
+        product.setCustomFields(fields);
+        return *this;
+    }
+
+    ProductBuilder &ProductBuilder::setImages(const std::vector<std::string> &images)
+    {
+        product.setImages(images);
+        return *this;
+    }
+
     ProductBuilder &ProductBuilder::clear()
     {
         product = Product();
