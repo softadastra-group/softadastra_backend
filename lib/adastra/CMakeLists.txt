@@ -11,7 +11,8 @@ add_subdirectory(storage)
 add_subdirectory(core)
 add_subdirectory(config)
 add_subdirectory(test_utils)
-add_subdirectory(ai) # comment out if unused
+add_subdirectory(ai)
+add_subdirectory(database)
 
 # 🔹 Create the static library `adastra` with a dummy source
 add_library(adastra STATIC dummy.cpp)
@@ -27,6 +28,7 @@ target_link_libraries(adastra PUBLIC
     config
     test_utils
     ai
+    database
 
     Threads::Threads
     nlohmann_json::nlohmann_json
