@@ -45,6 +45,10 @@ namespace softadastra::commerce::products
         uint32_t getReviewCount() const { return review_count; }
         bool isBoosted() const { return boost; }
 
+        const std::vector<std::uint32_t> &getSimilarProducts() const { return similar_products; }
+        const std::vector<std::pair<std::string, std::string>> &getCustomFields() const { return custom_fields; }
+        const std::vector<std::string> &getImages() const { return images; }
+
         void setId(uint32_t value) { id = value; }
         void setTitle(const std::string &value) { title = value; }
         void setImageUrl(const std::string &value) { image_url = value; }
@@ -67,6 +71,10 @@ namespace softadastra::commerce::products
         void setOriginalPrice(std::optional<std::string> value) { original_price = value; }
         void setReviewCount(uint32_t value) { review_count = value; }
         void setBoost(bool value) { boost = value; }
+
+        void setSimilarProducts(const std::vector<uint32_t> &value) { similar_products = value; }
+        void setCustomFields(const std::vector<std::pair<std::string, std::string>> &value) { custom_fields = value; }
+        void setImages(const std::vector<std::string> &value) { images = value; }
 
         static Product fromJson(const nlohmann::json &j);
 
@@ -111,6 +119,23 @@ namespace softadastra::commerce::products
                 j["review_count"] = review_count;
 
             j["boost"] = boost;
+
+            if (!similar_products.empty())
+                j["similar_products"] = similar_products;
+
+            if (!images.empty())
+                j["images"] = images;
+
+            if (!custom_fields.empty())
+            {
+                j["custom_fields"] = nlohmann::json::array();
+                for (const auto &field : custom_fields)
+                {
+                    j["custom_fields"].push_back({{"name", field.first},
+                                                  {"value", field.second}});
+                }
+            }
+
             return j;
         }
 
@@ -137,6 +162,10 @@ namespace softadastra::commerce::products
         std::uint32_t views;
         std::uint32_t review_count;
         bool boost;
+
+        std::vector<std::uint32_t> similar_products;
+        std::vector<std::pair<std::string, std::string>> custom_fields;
+        std::vector<std::string> images;
 
         Product() : id(0), converted_price_value(0), price_with_shipping_value(0),
                     category_id(0), views(0), review_count(0), boost(false) {}

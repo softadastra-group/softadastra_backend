@@ -40,6 +40,11 @@ namespace softadastra::commerce::products
         ProductBuilder &setBrandId(const std::optional<uint32_t> &brandId);
 
         ProductBuilder &setLocation(const std::string &city, const std::string &countryImage);
+
+        ProductBuilder &setSimilarProducts(const std::vector<uint32_t> &similarProducts);
+        ProductBuilder &setCustomFields(const std::vector<std::pair<std::string, std::string>> &fields);
+        ProductBuilder &setImages(const std::vector<std::string> &images);
+
         ProductBuilder &clear();
 
         Product build() const;

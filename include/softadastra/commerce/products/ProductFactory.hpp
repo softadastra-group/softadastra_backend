@@ -1,10 +1,9 @@
 #ifndef PRODUCT_FACTORY_HPP
 #define PRODUCT_FACTORY_HPP
 
-#include <softadastra/commerce/products/Product.hpp>
-
 #include <memory>
 #include <nlohmann/json.hpp>
+#include <softadastra/commerce/products/Product.hpp>
 
 namespace softadastra::commerce::products
 {
@@ -12,8 +11,9 @@ namespace softadastra::commerce::products
     {
     public:
         static std::unique_ptr<Product> createFromJson(const nlohmann::json &data);
+        static std::unique_ptr<Product> createFromInternalJson(const nlohmann::json &data); // ✅ AJOUTER ICI
         static Product fromJsonOrThrow(const nlohmann::json &data);
     };
 }
 
-#endif // PRODUCT_FACTORY_HPP
+#endif

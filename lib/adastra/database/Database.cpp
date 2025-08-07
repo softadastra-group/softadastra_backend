@@ -145,28 +145,106 @@ namespace adastra::database
         return setClause;
     }
 
-    // Implémentation de setParameter pour un int
     void Database::setParameter(std::unique_ptr<sql::PreparedStatement> &pstmt, int index, int value)
     {
         pstmt->setInt(index, value);
     }
 
-    // Implémentation de setParameter pour un double
     void Database::setParameter(std::unique_ptr<sql::PreparedStatement> &pstmt, int index, double value)
     {
         pstmt->setDouble(index, value);
     }
 
-    // Implémentation de setParameter pour un string
     void Database::setParameter(std::unique_ptr<sql::PreparedStatement> &pstmt, int index, const std::string &value)
     {
         pstmt->setString(index, value);
     }
 
-    // Implémentation de setParameter pour un const char*
     void Database::setParameter(std::unique_ptr<sql::PreparedStatement> &pstmt, int index, const char *value)
     {
         pstmt->setString(index, value);
+    }
+
+    void Database::setParameter(std::unique_ptr<sql::PreparedStatement> &pstmt, int index, unsigned int value)
+    {
+        pstmt->setUInt(index, value);
+    }
+
+    void Database::setParameter(std::unique_ptr<sql::PreparedStatement> &pstmt, int index, bool value)
+    {
+        pstmt->setBoolean(index, value);
+    }
+
+    void Database::setParameter(std::unique_ptr<sql::PreparedStatement> &pstmt, int index, float value)
+    {
+        pstmt->setDouble(index, static_cast<double>(value));
+    }
+
+    void Database::setParameter(std::unique_ptr<sql::PreparedStatement> &pstmt, int index, long long value)
+    {
+        pstmt->setInt64(index, value);
+    }
+
+    void Database::setParameter(std::unique_ptr<sql::PreparedStatement> &pstmt, int index, std::int64_t value)
+    {
+        pstmt->setInt64(index, value);
+    }
+
+    void Database::executeUpdate(const std::string &query, const std::vector<std::any> &params)
+    {
+        try
+        {
+            std::unique_ptr<sql::PreparedStatement> pstmt(connection->prepareStatement(query));
+            int index = 1;
+            for (const auto &param : params)
+            {
+                if (param.type() == typeid(int))
+                    pstmt->setInt(index, std::any_cast<int>(param));
+                else if (param.type() == typeid(std::string))
+                    pstmt->setString(index, std::any_cast<std::string>(param));
+                else if (param.type() == typeid(const char *))
+                    pstmt->setString(index, std::any_cast<const char *>(param));
+                else if (param.type() == typeid(float))
+                    pstmt->setDouble(index, std::any_cast<float>(param));
+                else if (param.type() == typeid(double))
+                    pstmt->setDouble(index, std::any_cast<double>(param));
+                else if (param.type() == typeid(bool))
+                    pstmt->setBoolean(index, std::any_cast<bool>(param));
+                else if (param.type() == typeid(uint32_t))
+                    pstmt->setUInt(index, std::any_cast<uint32_t>(param));
+                else
+                    throw DatabaseException("❌ Type de paramètre non supporté dans executeUpdate()");
+                ++index;
+            }
+
+            pstmt->executeUpdate();
+        }
+        catch (const sql::SQLException &e)
+        {
+            throw DatabaseException("❌ Erreur dans executeUpdate(): " + std::string(e.what()));
+        }
+    }
+
+    unsigned int Database::lastInsertId()
+    {
+        try
+        {
+            std::unique_ptr<sql::ResultSet> res(
+                connection->createStatement()->executeQuery("SELECT LAST_INSERT_ID() AS id"));
+
+            if (res->next())
+            {
+                return res->getUInt("id");
+            }
+            else
+            {
+                throw DatabaseException("Impossible de récupérer le dernier ID inséré.");
+            }
+        }
+        catch (sql::SQLException &e)
+        {
+            throw DatabaseException("Erreur dans lastInsertId(): " + std::string(e.what()));
+        }
     }
 
 } // namespace Adastra
